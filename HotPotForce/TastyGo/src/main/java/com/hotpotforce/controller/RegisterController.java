@@ -1,15 +1,29 @@
 package com.hotpotforce.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hotpotforce.pojo.Users;
+import com.hotpotforce.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/index")
 public class RegisterController {
+
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/registeration")
-    public String register() {
-        return "Welcome Tasty Go";
+//    @PostMapping ("/registeration")
+//    @RequestMapping(value = "/registeration", method = RequestMethod.POST)
+    public boolean register(String username, String password) {
+//        return "Welcome Tasty Go";
+        System.out.println("controller: \nusername: "+  username + '\n' + "password: " + password);
+        boolean result = userService.register(username, password);
+        return result;
+    }
+
+    @GetMapping("/login/{name}/{password}")
+    public Users login(@PathVariable("name") String username, @PathVariable("password") String passsword) {
+        return userService.login(username, passsword);
     }
 }

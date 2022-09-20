@@ -1,3 +1,16 @@
 # 端口号配置
 server:
-  port: 8081
+  port: 8080
+
+spring:
+  datasource:
+    name: hotpotforce  #数据库名
+    url: jdbc:mysql://localhost:3306/hotpotforce?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8 #url(端口后面是数据库名字）
+    username: root  #用户名
+    password: 123456  #密码
+    driver-class-name: com.mysql.jdbc.Driver  #数据库链接驱动
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #配置映射文件
+  type-aliases-package: com.hotpotforce.pojo #配置实体类
