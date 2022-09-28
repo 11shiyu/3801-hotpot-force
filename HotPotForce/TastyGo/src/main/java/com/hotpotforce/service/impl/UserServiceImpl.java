@@ -13,12 +13,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public boolean register(String username, String password) {
+    public boolean register(String username, String password, String nation) {
         // 先if 判断如果没有在insert
         boolean flag = false;
-        System.out.println("service : \nusername: "+  username + '\n' + "password: " + password);
+        System.out.println("service: \nusername: "+  username + '\n' + "password: " + password +'\n' + "nation: "+ nation);
         try {
-            int result = userMapper.register(username, password);
+            int result = userMapper.register(username, password, nation);
 
             if (result == 1) {
                 flag = true;
@@ -38,5 +38,12 @@ public class UserServiceImpl implements UserService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public Users getUserByID(Long ID) {
+        Users user = userMapper.getUser(ID);
+//        System.out.println("Userservice user: " + user);
+        return user;
     }
 }

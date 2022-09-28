@@ -12,13 +12,13 @@ public class RegisterController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/registeration")
-//    @PostMapping ("/registeration")
+//    @GetMapping("/registeration")
+    @PostMapping ("/registeration")
 //    @RequestMapping(value = "/registeration", method = RequestMethod.POST)
-    public boolean register(String username, String password) {
+    public boolean register(String username, String password, String nation) {
 //        return "Welcome Tasty Go";
-        System.out.println("controller: \nusername: "+  username + '\n' + "password: " + password);
-        boolean result = userService.register(username, password);
+        System.out.println("controller: \nusername: "+  username + '\n' + "password: " + password +'\n' + "nation: "+ nation);
+        boolean result = userService.register(username, password, nation);
         return result;
     }
 

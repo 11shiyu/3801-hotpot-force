@@ -18,10 +18,11 @@ public interface UserMapper {
 //
 //    int updateUser(Users user);
 //
-//    Users selectById(Long id);
+    @Select("select id, username from users where ID = #{ID};")
+    Users getUser(@Param("ID") Long id);
 
-    @Insert("insert into users(username, password) values (#{username}, #{password})")
-    int register(@Param("username") String username, @Param("password") String password);
+    @Insert("insert into users(username, password, nationality) values (#{username}, #{password}, #{nationality})")
+    int register(@Param("username") String username, @Param("password") String password, String nationality);
 
     @Select("select * from users where username = #{username} and password = #{password}")
     Users login(@Param("username") String username, @Param("password") String password);

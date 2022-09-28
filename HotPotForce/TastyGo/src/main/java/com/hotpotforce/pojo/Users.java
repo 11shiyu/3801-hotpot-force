@@ -9,6 +9,8 @@ public class Users {
     private String password;
     private String Email;
 
+    private String nationality;
+
     public Users(Long ID, String username, String password) {
         this.ID = ID;
         this.username = username;
@@ -25,7 +27,13 @@ public class Users {
     public Users() {
     }
 
+    public String getNationality() {
+        return nationality;
+    }
 
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
 
     public Long getID() {
         return ID;
@@ -57,5 +65,16 @@ public class Users {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "ID=" + ID +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", Email='" + Email + '\'' +
+                ", nationality='" + nationality + '\'' +
+                '}';
     }
 }
