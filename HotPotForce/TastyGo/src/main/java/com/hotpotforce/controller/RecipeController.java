@@ -9,9 +9,8 @@ import com.hotpotforce.service.RecipeService;
 import com.hotpotforce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,16 +27,17 @@ public class RecipeController {
     private FavoriteService favoriteService;
 
     @GetMapping("/searchRecipe")
-    public RecipeBook searchRecipe(String recipeName) {
-        RecipeBook recipeBook = recipeService.searchRecipe(recipeName);
+    public List<RecipeBook> searchRecipe(String recipeName) {
+        List<RecipeBook> recipeBook = recipeService.searchRecipe(recipeName);
 //        System.out.println("recipeBook: " + recipeBook);
         return recipeBook;
     }
 
     @Transactional
     @PostMapping("/createRecipe")
+//    @GetMapping("/createRecipe")
     public boolean createRecipe(Integer cookingTime, String recipeName, String description,
-//                                List<String> ingredients,
+                                @RequestParam("ingredients") List<String> ingredients,
                                 String nationality, String photoPath) {
         int result = 0;
         if (description.length() > 0) {
@@ -45,12 +45,15 @@ public class RecipeController {
                 result = recipeService.createRecipe(cookingTime, recipeName, description, nationality, photoPath);
                 // insert ingredeint to DB
 //                System.out.println("ingredients: " + ingredients);
-//                for (String ingredient : ingredients) {
-//                    recipeService.insertIngredient(recipeName, ingredient);
-//                }
+                for (String ingredient : ingredients) {
+                    recipeService.insertIngredient(recipeName, ingredient);
+//                    String s = null;
+//                    s.length();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-//                result = 0;
+                result = 0;
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             }
         }
         return result != 0;
@@ -92,7 +95,14 @@ public class RecipeController {
         return flag;
     }
 
-//    public Boolean removeFavorite() {
-//        return false;
-//    }
+    @GetMapping("/checkList")
+    public List<String> checkList(String recipeName) {
+        return recipeService.checkList(recipeName);
+    }
+
+    @GetMapping("/filter")
+    public List<RecipeBook> filter(String cookingTime, String ingredient, String nationality) {
+        return recipeService.filter(cookingTime, ingredient, nationality);
+    }
+
 }

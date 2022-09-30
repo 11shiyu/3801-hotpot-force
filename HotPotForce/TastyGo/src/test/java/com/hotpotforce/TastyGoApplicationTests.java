@@ -3,6 +3,8 @@ package com.hotpotforce;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -29,13 +31,8 @@ class TastyGoApplicationTests {
     }
 
     @Test
-    void userList() {
-        String sql = "select * from users";
-        List<Map<String, Object>> listMaps = jdbcTemplate.queryForList(sql);
-
-        System.out.println(listMaps);
-        System.out.println("111111");
-
+    void SearchRecipeTest() {
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("application.yaml");
     }
 
 }

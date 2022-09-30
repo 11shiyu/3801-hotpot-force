@@ -5,6 +5,8 @@ public class Ingredient {
     private Long recipeID;
     private String ingredient;
 
+    private String recipeName;
+
     public Ingredient() {
     }
 
@@ -12,6 +14,8 @@ public class Ingredient {
         this.recipeID = recipeID;
         this.ingredient = ingredient;
     }
+
+
 
     public Long getID() {
         return ID;
@@ -35,5 +39,13 @@ public class Ingredient {
 
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
+    }
+
+    public String getRecipeName() {
+        return recipeName;
+    }
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 }

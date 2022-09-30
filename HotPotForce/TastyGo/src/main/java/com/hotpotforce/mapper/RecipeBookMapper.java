@@ -10,8 +10,9 @@ import java.util.List;
 @Repository
 public interface RecipeBookMapper {
 
-    @Select("select * from recipe where recipeName = #{recipeName}")
-    RecipeBook searchRecipeByName(String recipeName);
+//    @Select("select * from recipe where recipeName = #{recipeName}")
+//    @Select("select * from recipe where recipeName like concat('%',#{recipeName} ,'%')")
+    List<RecipeBook> searchRecipeByName(@Param("recipeName") String recipeName);
 
     @Insert("insert into recipe(cookingTime, recipeName, description, nationality, photoPath) values (#{cookingTime}, #{recipeName}, #{description}, #{nationality}, #{photoPath})")
     int createRecipe(@Param("cookingTime") Integer cookingTime, @Param("recipeName") String recipeName,
@@ -28,6 +29,11 @@ public interface RecipeBookMapper {
     RecipeBook getRecipeByID(@Param("ID") Long ID);
 
 
-    @Insert("insert into ingredient(recipeName, ingredient) values (#{recipeName}, #{ingredient})")
+    @Insert("insert into ingredients(recipeName, ingredient) values (#{recipeName}, #{ingredient})")
     int insertIngredient(@Param("recipeName") String recipeName, @Param("ingredient") String ingredient);
+
+    @Select("select ingredient from ingredients where recipeName=#{recipeName}")
+    List<String> getIngredients(@Param("recipeName") String recipeName);
+
+    List<RecipeBook> filter(@Param("cookingTime") int cookingTime, @Param("ingredient") String ingredient, @Param("nationality") String nationality );
 }
