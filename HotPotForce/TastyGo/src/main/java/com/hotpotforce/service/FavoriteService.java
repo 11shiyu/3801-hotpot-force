@@ -1,6 +1,7 @@
 package com.hotpotforce.service;
 
 import com.hotpotforce.pojo.Favorite;
+import com.hotpotforce.pojo.RecipeBook;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public interface FavoriteService {
 
     int removeFavorite(String username, Long recipeID);
 
-    int removeFavoriteByName(String username, String recipeName);
+    Boolean removeFavoriteByName(String username, String recipeName);
 
-    List<String> getFavorites(@Param("username") String username);
+    List<RecipeBook> getFavorites(@Param("username") String username);
 
 }

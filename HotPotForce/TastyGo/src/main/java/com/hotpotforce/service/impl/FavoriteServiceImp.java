@@ -2,10 +2,12 @@ package com.hotpotforce.service.impl;
 
 import com.hotpotforce.mapper.FavoriteMapper;
 import com.hotpotforce.pojo.Favorite;
+import com.hotpotforce.pojo.RecipeBook;
 import com.hotpotforce.service.FavoriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,12 +43,24 @@ public class FavoriteServiceImp implements FavoriteService {
     }
 
     @Override
-    public int removeFavoriteByName(String username, String recipeName) {
-        return favoriteMapper.removeFavoriteByName(username, recipeName);
+    public Boolean removeFavoriteByName(String username, String recipeName) {
+        Boolean flag = false;
+        int reuslt = favoriteMapper.removeFavoriteByName(username, recipeName);
+        if (reuslt == 1) {
+            return true;
+        } else {
+            return false;
+        }
+//        return favoriteMapper.removeFavoriteByName(username, recipeName);
     }
 
     @Override
-    public List<String> getFavorites(String username) {
-        return favoriteMapper.getFavorites(username);
+    public List<RecipeBook> getFavorites(String username) {
+        try {
+            return favoriteMapper.getFavorites(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 }

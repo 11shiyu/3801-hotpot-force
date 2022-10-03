@@ -105,4 +105,15 @@ public class RecipeController {
         return recipeService.filter(cookingTime, ingredient, nationality);
     }
 
+    @GetMapping("/getFavorites")
+    public List<RecipeBook> getFavorites(String username) {
+        return favoriteService.getFavorites(username);
+    }
+
+    @PostMapping("/deleteFavoriteByname")
+    public Boolean deletFavorite(String username, String recipeName) {
+        return favoriteService.removeFavoriteByName(username, recipeName);
+
+    }
+
 }

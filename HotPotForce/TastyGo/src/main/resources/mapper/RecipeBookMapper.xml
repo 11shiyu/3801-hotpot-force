@@ -28,6 +28,6 @@
             </if>
             and recipe.recipeName = ingredients.recipeName
         </where>
-
     </select>
+
 </mapper>
