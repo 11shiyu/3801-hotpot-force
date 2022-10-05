@@ -1,0 +1,6 @@
+CREATE TABLE `hotpotforce`.`ingredients` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `recipeName` VARCHAR(45) NULL,
+  `RecipeID` INT(11) NULL,
+  `ingredient` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`));

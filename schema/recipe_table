@@ -1,0 +1,12 @@
+CREATE TABLE `hotpotforce`.`recipe` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `recipeName` VARCHAR(45) NOT NULL,
+  `cookingTime` VARCHAR(45) NOT NULL,
+  `description` MEDIUMTEXT NOT NULL,
+  `nationality` VARCHAR(45) NOT NULL,
+  `photoPath` VARCHAR(255) NOT NULL,
+  `cultureBackground` MEDIUMTEXT NULL,
+  `new_tablecol` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
+  UNIQUE INDEX `recipeName_UNIQUE` (`recipeName` ASC));

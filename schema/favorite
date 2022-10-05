@@ -1,0 +1,8 @@
+CREATE TABLE `hotpotforce`.`favorite` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(45) NOT NULL,
+  `recipeID` INT(11) NULL,
+  `recipeName` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
