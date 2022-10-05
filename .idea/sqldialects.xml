@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/HotPotForce/TastyGo/src/main/resources/mapper/RecipeBookMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/HotPotForce/TastyGo/src/main/resources/mapper/favoriteMapper.xml" dialect="GenericSQL" />
+  </component>
+</project>

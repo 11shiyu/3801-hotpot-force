@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotpotforce.mapper.RecipeBookMapper">
+    <select id="searchRecipeByName" resultType="com.hotpotforce.pojo.RecipeBook">
+        select *
+        from recipe
+        where recipeName like concat('%',#{recipeName} ,'%')
+    </select>
+    
+    <select id="filter" resultType="com.hotpotforce.pojo.RecipeBook">
+        select Distinct (recipe.ID),
+               recipe.recipeName,
+               cookingTime, description,
+               nationality, photoPath,
+               cultureBackground
+        from recipe, ingredients
+        <where>
+            <if test="cookingTime != null and cookingTime !=''">
+                and cookingTime &lt;= #{cookingTime}
+            </if>
+            <if test="ingredient != null and ingredient !=''">
+                and ingredients.ingredient = #{ingredient}
+            </if>
+            <if test="nationality != null and nationality !=''">
+                and nationality = #{nationality}
+            </if>
+            and recipe.recipeName = ingredients.recipeName
+        </where>
+    </select>
+
+</mapper>
