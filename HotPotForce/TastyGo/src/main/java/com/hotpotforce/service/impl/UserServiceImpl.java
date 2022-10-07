@@ -5,6 +5,7 @@ import com.hotpotforce.pojo.Users;
 import com.hotpotforce.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,5 +46,17 @@ public class UserServiceImpl implements UserService {
         Users user = userMapper.getUser(ID);
 //        System.out.println("Userservice user: " + user);
         return user;
+    }
+
+    @Transactional
+    @Override
+    public Users updateUserScore(String username) {
+        userMapper.updateScore(username);
+        return userMapper.getUserByname(username);
+    }
+
+    @Override
+    public Users getUserByname(String username) {
+        return userMapper.getUserByname(username);
     }
 }

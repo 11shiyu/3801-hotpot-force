@@ -11,17 +11,20 @@ public class Users {
 
     private String nationality;
 
+    private int score;
+
     public Users(Long ID, String username, String password) {
         this.ID = ID;
         this.username = username;
         this.password = password;
     }
 
-    public Users(Long ID, String username, String password, String email) {
+    public Users(Long ID, String username, String password, String email, int score) {
         this.ID = ID;
         this.username = username;
         this.password = password;
-        Email = email;
+        this.Email = email;
+        this.score = score;
     }
 
     public Users() {
@@ -65,6 +68,14 @@ public class Users {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override

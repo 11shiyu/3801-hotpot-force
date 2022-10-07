@@ -12,12 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
-//    int insertUser(Users user);
-//
-//    int deleteUser(Long userId);
-//
-//    int updateUser(Users user);
-//
     @Select("select id, username from users where ID = #{ID};")
     Users getUser(@Param("ID") Long id);
 
@@ -26,4 +20,10 @@ public interface UserMapper {
 
     @Select("select * from users where username = #{username} and password = #{password}")
     Users login(@Param("username") String username, @Param("password") String password);
+
+    @Insert("update users set score = score + 1 where username = #{username}")
+    int updateScore(@Param("username") String username);
+
+    @Select("select id, username, email, score from users where username = #{username};")
+    Users getUserByname(@Param("username") String username);
 }
