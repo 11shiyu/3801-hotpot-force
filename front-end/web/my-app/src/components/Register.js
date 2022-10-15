@@ -41,33 +41,34 @@ export default function Register() {
     }
 
     return (
-        <div>
-            <h3>Create Account</h3>
-            <form onSubmit={handleButtonClick}>
+        <div style={{minHeight:'650pt', backgroundImage: `url(${Background})`}}>
+            <div style={{height:'80pt'}}></div>
+            <h3 className='register-title'>Create Account</h3>
+            <form onSubmit={handleButtonClick} className="register-body">
                 {/* <!-- username input--> */}
                 <p>Username:</p>
-                <label><input type="text" ref={username} name="username" placeholder="Enter your username" /></label>
+                <label><input type="text" ref={username} name="username" placeholder="Enter your username" className='register-input'/></label>
                 <br/>
 
                 {/* <!-- password input --> */}
                 <p>Password:</p>
-                <label><input type="password" ref={password} name="password" id="password" placeholder="length between 5-15"/></label>
+                <label><input type="password" ref={password} name="password" id="password" placeholder="length between 5-15" className='register-input'/></label>
                 <br/>
 
                 {/* <!-- email input --> */}
                 <p>Email:</p>
-                <label><input type="email" ref={email} name="email" id="email" placeholder="Enter your email"/></label>
+                <label><input type="email" ref={email} name="email" id="email" placeholder="Enter your email" className='register-input'/></label>
                 <br/>
                 
                 <p>Cusine/Nationality:</p>
-                <label><input type="nationality" ref={nationality} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
+                <label><input type="nationality" ref={nationality} name="nationality" id="nationality" placeholder="Enter your nationality" className='register-input'/></label>
                 <br/>
 
                 {/* <!-- submit button--> */}         
-                <label><button type="submit" value="Register">Register</button></label>
+                <label><button type="submit" value="Register" className='register-button'>Register</button></label>
                 <br/>
                 <br/>
-                <Link to='/' type='submit' className='Save-Btn'>Back to sign in</Link>
+                <Link to='/' type='submit' className='register-back'>Back to sign in</Link>
             </form>
         </div>
     )

@@ -186,3 +186,34 @@
     margin-top: 5%;
     border-radius: 10%;
 }
+
+/*** register ***/
+.register-title{
+    margin-top: 0;
+    margin-left: 20%;
+    font-size: 25pt;
+    color: white;
+}
+
+.register-body p{
+    font-size: 20pt;
+    color: white;
+    margin-left: 30pt;
+}
+
+.register-input{
+    font-size: 16pt;
+    margin-left: 30pt;
+}
+
+.register-button{
+    font-size: 16pt;
+    margin-left: 35%;
+    margin-top: 30pt;
+}
+
+.register-back{
+    font-size: 14pt;
+    margin-left: 32%;
+    color: aliceblue;
+}
