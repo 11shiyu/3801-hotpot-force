@@ -4,66 +4,147 @@ import '../css/Styles.css';
 import Logo from '../img/logo.png';
 import Background from '../img/background.png';
 
+
 export default function QuizList() {
 
-    const initialQuizList = [];
-    const [quizs, setQuizs] = useState(initialQuizList);
 
-    useEffect(() => {
-        getQuestion();
-    }, []);
+    // const initialQuizList = [];
+    // const [quizs, setQuizs] = useState(quizList);
 
-    //get question and selectionABCD
-    async function getQuestion() {
-        const questionURL = `http://localhost:8080/getQuizs?country=China`;
-        const response = await fetch(questionURL);
-        const quizList = await response.json();
-        // const question = questions.question;
-        // const optionA = userInfo.optionA;
-        // const optionB = userInfo.optionB;
-        // const optionC = userInfo.optionC;
-        // const optionD = userInfo.optionD;
+    // useEffect(() => {
+    //     getQuestion();
+    // }, []);
+
+    // //get question and selectionABCD
+    // async function getQuestion() {
+    //     const questionURL = `http://localhost:8080/getQuizs?country=China`;
+    //     const response = await fetch(questionURL);
+    //     const quizList = await response.json();
+    // }
+
+    function calculateScore() {
+        let count = 0;
+        {userSelection.map((select) => {
+            if (select == true) {
+                count++
+            }
+        })}
+        console.log("count->", count)
+        return count;
+
     }
+
+
+    var quizList = [
+        {
+            optionA:"选项一",
+            optionB:"选项二",
+            optionC:"选项三",
+            optionD:"选项四",
+            country:"China",
+            id:1,
+            question:"这里是第一题的内容"
+        },
+        {
+            optionA:"选项一",
+            optionB:"选项二",
+            optionC:"选项三",
+            optionD:"选项四",
+            country:"Japan",
+            id:2,
+            question:"这里是第二题的内容"
+        },
+        {
+            optionA:"选项一",
+            optionB:"选项二",
+            optionC:"选项三",
+            optionD:"选项四",
+            country:"Italy",
+            id:3,
+            question:"这里是第三题的内容"
+        },
+        {
+            optionA:"选项一",
+            optionB:"选项二",
+            optionC:"选项三",
+            optionD:"选项四",
+            country:"Italy",
+            id:4,
+            question:"这里是第四题的内容"
+        },
+    ]
+
+
+    console.log("quizList-->", quizList)
+
+    return (
+
+        <>
+        {quizList.map((quiz) => (
+            <Quiz
+            key={quiz.id}
+            id = {quiz.id}
+            question = {quiz.question}
+            optionA = {quiz.optionA}
+            optionB = {quiz.optionB}
+            optionC = {quiz.optionC}
+            optionD = {quiz.optionD}
+            />
+        ))}
+        <br/>
+        <button type='button' onClick={calculateScore}>submit</button>
+        </>
+    )
+}
+
+const userSelection = [
+    false,
+    false,
+    false,
+    false,
+];
+
+function Quiz({id, question, optionA, optionB, optionC, optionD}) {
 
     async function getAnswer(select, question) {
         const questionURL = `http://localhost:8080/checkQuizAns?userAnswer=${select}&question=${question}`;
         const response = await fetch(questionURL);
         const result = await response.json();
     }
-
-    const userSelection = [
-        {"question1" : true},
-        {"question2" : true},
-        {"question3" : true},
-        {"question4" : true},
-    ];
-
-    return {
-
-        
+    
+    
+    function handleClick(select, question, id) {
+        console.log("click:", select, question)
+        const result = getAnswer(select, question);
+        userSelection[id - 1] = true;
+        // if (select === 'a') {
+        //     userSelection.id = true;
+        // } else if (select === 'b') {
+        //     userSelection.question2 = true;
+        // } else if (select === 'c') {
+        //     userSelection.question3 = true;
+        // } else if (select === 'd') {
+        //     userSelection.question4 = true;
+        // }
+        console.log("userSelection->", userSelection)
     }
 
-}
-
-function Quiz({id, question, optionA, optionB, optionC, optionD}) {
-    
     return(
-        <div>
-            <h2>Question {id}</h2>
-            <FormControl>
-            <FormLabel id="demo-radio-buttons-group-label">{question}</FormLabel>
-            <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name={question}
-            >
-            <FormControlLabel value="optionA" control={<Radio />} label={optionA} />
-            <FormControlLabel value="optionB" control={<Radio />} label={optionB} />
-            <FormControlLabel value="optionC" control={<Radio />} label={optionC} />
-            <FormControlLabel value="optionD" control={<Radio />} label={optionD} />
-            </RadioGroup>
-            </FormControl>
-        </div>
+        <>
+            <main>
+                <div>
+                    <h2>Question:{id}</h2>
+                    <p id="demo-radio-buttons-group-label">{question}</p>
+                    {/* <div>question:{id}</div> */}
+                    <p>{optionA}</p><button type='button' onClick={() => handleClick("a", question, id)}>A</button>
+                    <p>{optionB}</p><button type='button' onClick={() => handleClick("b", question, id)}>B</button>
+                    <p>{optionC}</p><button type='button' onClick={() => handleClick("c", question, id)}>C</button>
+                    <p>{optionD}</p><button type='button' onClick={() => handleClick("d", question, id)}>D</button>
+                </div>
+            </main>
+        </>
     )
 }
+
+
 

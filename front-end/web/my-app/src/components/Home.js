@@ -21,7 +21,8 @@ export default function Home() {
     return(
         <div className='body'>
             <div className='home-header'>
-                <a>Explore</a>     <a>Quiz</a>
+                <a>Explore</a>     
+                <Link to = '/Quiz'>Quiz</Link>
             </div>
             <div className='section'>
                 <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>

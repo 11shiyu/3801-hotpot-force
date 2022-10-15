@@ -11,6 +11,7 @@ import Shop from './components/Shop';
 import SignIn from './components/SignIn';
 import Footer from "./components/footer";
 import Register from "./components/Register";
+import QuizList from "./components/Quiz";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='search' element={<Search />} />
             <Route path='shop' element={<Shop />} />
             <Route path='register' element={<Register />} />
+            <Route path='quiz' element={<QuizList />} />
         </Routes>
         <Footer />
     </BrowserRouter>
