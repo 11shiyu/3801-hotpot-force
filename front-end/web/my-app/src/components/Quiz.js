@@ -38,6 +38,11 @@ export default function QuizList() {
         {"question4" : true},
     ];
 
+    return {
+
+        
+    }
+
 }
 
 function Quiz({question, optionA, optionB, optionC, optionD}) {
