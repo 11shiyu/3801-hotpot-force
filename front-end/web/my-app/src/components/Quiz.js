@@ -45,9 +45,25 @@ export default function QuizList() {
 
 }
 
-function Quiz({question, optionA, optionB, optionC, optionD}) {
-    return {
-
-    }
+function Quiz({id, question, optionA, optionB, optionC, optionD}) {
+    
+    return(
+        <div>
+            <h2>Question {id}</h2>
+            <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">{question}</FormLabel>
+            <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name={question}
+            >
+            <FormControlLabel value="optionA" control={<Radio />} label={optionA} />
+            <FormControlLabel value="optionB" control={<Radio />} label={optionB} />
+            <FormControlLabel value="optionC" control={<Radio />} label={optionC} />
+            <FormControlLabel value="optionD" control={<Radio />} label={optionD} />
+            </RadioGroup>
+            </FormControl>
+        </div>
+    )
 }
 
