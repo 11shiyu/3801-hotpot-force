@@ -21,8 +21,8 @@ export default function Home() {
     return(
         <div className='body'>
             <div className='home-header'>
-                <a>Explore</a>     
-                <Link to = '/Quiz'>Quiz</Link>
+            <Link to = '/home' style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</Link>      
+            <Link to = '/Quiz' style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</Link>
             </div>
             <div className='section'>
                 <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>

@@ -80,6 +80,10 @@ export default function QuizList() {
     return (
 
         <>
+        <div className='home-header'>
+            <Link to = '/home' style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</Link>      
+            <Link to = '/Quiz' style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</Link>
+        </div>
         {quizList.map((quiz) => (
             <Quiz
             key={quiz.id}
@@ -132,14 +136,14 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
     return(
         <>
             <main>
-                <div>
-                    <h2>Question:{id}</h2>
-                    <p id="demo-radio-buttons-group-label">{question}</p>
+                <div className='quiz-section'>
+                    <h2>Question {id}:</h2>
+                    <p id="demo-radio-buttons-group-label" className='quiz-question'>{question}</p>
                     {/* <div>question:{id}</div> */}
-                    <p>{optionA}</p><button type='button' onClick={() => handleClick("a", question, id)}>A</button>
-                    <p>{optionB}</p><button type='button' onClick={() => handleClick("b", question, id)}>B</button>
-                    <p>{optionC}</p><button type='button' onClick={() => handleClick("c", question, id)}>C</button>
-                    <p>{optionD}</p><button type='button' onClick={() => handleClick("d", question, id)}>D</button>
+                    <div className='quiz-a'><p>{optionA}</p><button type='button' onClick={() => handleClick("a", question, id)}>A</button></div>
+                    <div className='quiz-b'><p>{optionB}</p><button type='button' onClick={() => handleClick("b", question, id)}>B</button></div>
+                    <div className='quiz-c'><p>{optionC}</p><button type='button' onClick={() => handleClick("c", question, id)}>C</button></div>
+                    <div className='quiz-d'><p>{optionD}</p><button type='button' onClick={() => handleClick("d", question, id)}>D</button></div>
                 </div>
             </main>
         </>
