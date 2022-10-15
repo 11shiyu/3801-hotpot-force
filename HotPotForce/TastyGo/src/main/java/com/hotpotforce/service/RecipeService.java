@@ -18,4 +18,6 @@ public interface RecipeService {
     List<String> checkList(String recipeName);
 
     List<RecipeBook> filter(String cookingTime, String ingredient, String nationality);
+
+    List<RecipeBook> getAllRecipe();
 }
