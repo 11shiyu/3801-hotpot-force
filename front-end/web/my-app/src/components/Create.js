@@ -51,24 +51,23 @@ export default function Create() {
     }
 
     return (
-        <div>
-        <h3>Create your Recipe</h3>
-        <form onSubmit={handleButtonClick}>
+        <div style={{minHeight:'570pt'}}>
+        <h3 className='create-recipe-title'>Create your Recipe</h3>
+        <form onSubmit={handleButtonClick} className='create-body'>
             {/* <!-- username input--> */}
-            <p>Recipe name:</p>
-            <label><input type="text" ref={recipeName} name="username" placeholder="Enter your username" /></label>
-            <br/>
-
-            {/* <!-- password input --> */}
-            <p>Cooking time:</p>
-            <label><input type="text" ref={cookingTime} name="password" id="password" placeholder="length between 5-15"/></label>
+            <div className='create-title'>
+                <label><input type="text" ref={recipeName} name="username" placeholder="Title" style={{border:'none', fontSize:'20pt'}}/></label>
+            </div>
             <br/>
 
             {/* <!-- email input --> */}
-            <p>Recipe Description:</p>
-            <label><input type="text" ref={description} name="email" id="email" placeholder="Enter your email"/></label>
+            <p>Description</p>
+            <label><input type="text" ref={description} name="email" id="email" placeholder="Enter your email" className='create-description'/></label>
             <br/>
+
+            {/* <!-- password input --> */}
             
+
             <p>Cusine/Nationality:</p>
             <label><input type="text" ref={nationality} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
             <br/>
@@ -77,12 +76,19 @@ export default function Create() {
             <label><input type="text" ref={ingredient} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
             <br/>
 
-            <p>Culture Background:</p>
-            <label><input type="text" ref={cultureBackground} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
+            <div style={{marginTop:'20pt', verticalAlign:'middle'}}>
+                <p style={{float:'left'}}>Cook time</p>
+                <label><input type="text" ref={cookingTime} name="password" id="password" placeholder="eg. 1 hr 30 mins" className='create-time'/></label>
+                <br/>
+            </div>
+            
+
+            <p style={{marginTop:'20pt'}}>Culture Background:</p>
+            <label><input type="text" ref={cultureBackground} name="nationality" id="nationality" placeholder="eg. origin and story of the dish..." className='create-cultural'/></label>
             <br/>
 
             {/* <!-- submit button--> */}         
-            <label><button type="submit" value="Register"/>Send</label>
+            <label><button type="submit" value="Register" className='create-send'>Send</button></label>
             <br/>
             <br/>
         </form>
