@@ -4,7 +4,7 @@ import '../css/Styles.css';
 import Logo from '../img/logo.png';
 import Background from '../img/background.png';
 
-export default function Quiz() {
+export default function QuizList() {
 
     const initialQuizList = [];
     const [quizs, setQuizs] = useState(initialQuizList);
@@ -38,7 +38,11 @@ export default function Quiz() {
         {"question4" : true},
     ];
 
-    
-
-
 }
+
+function Quiz({question, optionA, optionB, optionC, optionD}) {
+    return {
+
+    }
+}
+
