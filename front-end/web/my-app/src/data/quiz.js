@@ -1,0 +1,29 @@
+export default quizList=[
+    {
+        optionA:"a",
+        optionB:"b",
+        optionC:"c",
+        optionD:"d",
+        country:"China",
+        id:1,
+        question:"test1"
+    },
+    {
+        optionA:"a",
+        optionB:"b",
+        optionC:"c",
+        optionD:"d",
+        country:"Japan",
+        id:2,
+        question:"test2"
+    },
+    {
+        optionA:"a",
+        optionB:"b",
+        optionC:"c",
+        optionD:"d",
+        country:"Italy",
+        id:3,
+        question:"test3"
+    },
+]

@@ -6,7 +6,7 @@ import Background from '../img/background.png';
 
 export default function SignIn() {
     const signinURL = '';
-    const registerURL = '';
+    
 
     console.log("come signin")
     const username = useRef(null);
@@ -17,10 +17,13 @@ export default function SignIn() {
     }, []);
 
     async function getData() {
+        const registerURL = 'http://localhost:8080/login/test1/123456';
         const response = await fetch(registerURL);
         const userInfo = await response.json();
         const getUsername = userInfo.username;
         const getPassword = userInfo.password;
+        console.log("getUsername->", getUsername.current.value)
+        console.log("getPassword->", getPassword.current.value)
     }
 
     const handleButtonClick = event => {

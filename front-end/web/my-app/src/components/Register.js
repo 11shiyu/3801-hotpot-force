@@ -13,10 +13,10 @@ export default function Register() {
     const score = 0;
     const id = 0;
 
-    const registerURL = `http://localhost:8080/registeration?username=${username}&password=${password}&nation=${nationality}`;
-
 
     const handleButtonClick = event => {
+        const registerURL = `http://localhost:8080/registeration?username=${username.current.value}&password=${password.current.value}&nation=${nationality.current.value}`;
+
         event.preventDefault();
         console.log("username->", username.current.value)
         console.log("password->", password.current.value)
@@ -35,6 +35,7 @@ export default function Register() {
 
         fetch(registerURL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(registerData),
         })
     }
@@ -63,7 +64,7 @@ export default function Register() {
                 <br/>
 
                 {/* <!-- submit button--> */}         
-                <label><button type="submit" value="Register"/>Register</label>
+                <label><button type="submit" value="Register">Register</button></label>
                 <br/>
                 <br/>
                 <Link to='/' type='submit' className='Save-Btn'>Back to sign in</Link>
