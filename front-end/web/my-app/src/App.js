@@ -10,6 +10,7 @@ import Search from './components/Search';
 import Shop from './components/Shop';
 import SignIn from './components/SignIn';
 import Footer from "./components/footer";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='me' element={<Me />} />
             <Route path='search' element={<Search />} />
             <Route path='shop' element={<Shop />} />
+            <Route path='register' element={<Register />} />
         </Routes>
         <Footer />
     </BrowserRouter>
