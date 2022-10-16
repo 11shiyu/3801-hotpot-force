@@ -62,7 +62,7 @@ export default function QuizList() {
 
     //get question and selectionABCD
     async function getQuestion() {
-        const questionURL = `http://localhost:8080/getQuizs?country=China`;
+        const questionURL = `http://localhost:8080/getQuizs?country=Italy`;
         const response = await fetch(questionURL);
         const quizs = await response.json();
         setQuizList(quizs)
@@ -123,6 +123,7 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
         const questionURL = `http://localhost:8080/checkQuizAns?userAnswer=${select}&question=${question}`;
         const response = await fetch(questionURL);
         const result = await response.json();
+        console.log("get result->", result)
         setResult(result)
     }
     
@@ -151,16 +152,16 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
                     <p id="demo-radio-buttons-group-label" className='quiz-question'>{question}</p>
                     {/* <div>question:{id}</div> */}
                     <div className='quiz-a'>
-                        <button type='button' onClick={() => handleClick("a", question, id)} style={{width:'20pt', float:'left'}}>A</button><p>{optionA}</p>
+                        <button type='button' onClick={() => handleClick(optionA, question, id)} style={{width:'20pt', float:'left'}}>A</button><p>{optionA}</p>
                     </div>
                     <div className='quiz-b'>
-                        <button type='button' onClick={() => handleClick("b", question, id)} style={{width:'20pt', float:'left'}}>B</button><p>{optionB}</p>
+                        <button type='button' onClick={() => handleClick(optionB, question, id)} style={{width:'20pt', float:'left'}}>B</button><p>{optionB}</p>
                     </div>
                     <div className='quiz-c'>
-                        <button type='button' onClick={() => handleClick("c", question, id)} style={{width:'20pt', float:'left'}}>C</button><p>{optionC}</p>
+                        <button type='button' onClick={() => handleClick(optionC, question, id)} style={{width:'20pt', float:'left'}}>C</button><p>{optionC}</p>
                     </div>
                     <div className='quiz-d'>
-                        <button type='button' onClick={() => handleClick("d", question, id)} style={{width:'20pt', float:'left'}}>D</button><p>{optionD}</p>
+                        <button type='button' onClick={() => handleClick(optionD, question, id)} style={{width:'20pt', float:'left'}}>D</button><p>{optionD}</p>
                     </div>
                 </div>
             </main>
