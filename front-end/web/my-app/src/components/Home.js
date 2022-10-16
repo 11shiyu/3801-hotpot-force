@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import '../css/Styles.css';
@@ -53,14 +53,17 @@ export default function Home() {
         )
     }
 
+    const initialRecipes = [];
+    const [recipes, setRecipes] = useState(initialRecipes);
     useEffect(() => {
         getData();
     }, []);
-    const get allRecipesRUL = `http://localhost:8080/getAllRecipes`;
+    const allRecipesRUL = `http://localhost:8080/getAllRecipes`;
 
     async function getData() {
         const response = await fetch(allRecipesRUL);
         const recipes = await response.json();
+        setRecipes(recipes)
     }
 
 

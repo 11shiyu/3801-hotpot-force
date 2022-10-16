@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../css/Styles.css';
+import HomeImg from '../img/home.png';
 import Logo from '../img/logo.png';
 import Background from '../img/background.png';
+import HeadImg from '../img/search3.png';
+import Like1 from '../img/like1.png';
+import Like2 from '../img/like2.png';
 
 export default function Result() {
     const recipes = useLocation().state;
@@ -18,6 +22,20 @@ export default function Result() {
         ))}
         </div>
     )
+}
+
+function Like() {
+    var state1 = document.getElementById('like1');
+    var state2 = document.getElementById('like2');
+    console.log(state1.style.display)
+    if (state1.style.display === "block") {
+        state1.style.display = "none";
+        state2.style.display = "block";
+    } else {
+        state1.style.display = "block";
+        state2.style.display = "none";
+    }
+    
 }
 
 function Recipe(recipeName, photoPath) {
