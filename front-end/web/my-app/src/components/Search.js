@@ -58,6 +58,7 @@ export default function Search() {
         const response = await fetch(searchRUL);
         const recipes = await response.json();
         setRecipes(recipes);
+        console.log("new recipes!", recipes)
     }
     async function filter() {
         const filterURL = `http://localhost:8080/filter?cookingTime=60&ingredient=${ingredient.current.value}&nationality=${Cusine.current.value}`;
