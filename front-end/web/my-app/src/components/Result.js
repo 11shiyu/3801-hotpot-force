@@ -39,7 +39,7 @@ function Like() {
     
 }
 
-function Recipe(recipeName, photoPath) {
+function Recipe({recipeName, photoPath}) {
 
 
     return(

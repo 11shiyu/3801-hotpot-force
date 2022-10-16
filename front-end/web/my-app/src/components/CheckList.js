@@ -132,6 +132,7 @@ function TodoCreator({ addTodo }) {
                 value={todo.task}
                 onChange={handleChangeTask} // 处理 传参有改变时
                 className='add-ingredient'
+                required="required"
                 />
             </label>
             <button type="submit" className='add-button'>Add</button>
