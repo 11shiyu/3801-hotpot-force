@@ -108,7 +108,7 @@ export default function QuizList() {
     )
 }
 
-const userSelection = [
+let userSelection = [
     false,
     false,
     false,
@@ -124,15 +124,15 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
         const response = await fetch(questionURL);
         const result = await response.json();
         console.log("get select->", select)
-        console.log("get result->", result)
         setResult(result)
+        console.log("get result->", result)
+        userSelection[id - 1] = result;
     }
     
     
     function handleClick(select, question, id) {
         console.log("click:", select, question)
         getAnswer(select, question);
-        userSelection[id - 1] = result;
         // if (select === 'a') {
         //     userSelection.id = true;
         // } else if (select === 'b') {
