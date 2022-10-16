@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 
 import '../css/Styles.css';
@@ -11,6 +11,7 @@ import Shop from '../img/hot.png';
 import Me from '../img/me.png';
 
 export default function footer() {
+    
     return(
         <Navbar fixed="bottom" className='nav-bar'>
             <Container>

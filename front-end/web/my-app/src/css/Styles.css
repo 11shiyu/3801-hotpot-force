@@ -114,11 +114,7 @@
 .section-creater a{
     margin-left: 7pt;
 }
-.nav-bar{
-    height: 60px;
-    border-top: 1pt;
-    background-color: white;
-}
+
 .search-img, .home-img, .share-img, .shop-img, .me-img{
     width: 13%;
     margin-left: 17pt;
