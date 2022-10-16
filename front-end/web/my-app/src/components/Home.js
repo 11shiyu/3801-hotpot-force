@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import '../css/Styles.css';
+// import recipeList from ''
 import SearchImg from '../img/filter.png';
 import HomeImg from '../img/home.png';
 import ShareImg from '../img/share.png';
@@ -53,19 +54,19 @@ export default function Home() {
         )
     }
 
-    const initialRecipes = [];
-    const [recipes, setRecipes] = useState(initialRecipes);
-    useEffect(() => {
-        getData();
-    }, []);
-    const allRecipesRUL = `http://localhost:8080/getAllRecipes`;
+    // const initialRecipes = [];
+    // const [recipes, setRecipes] = useState(initialRecipes);
+    // useEffect(() => {
+    //     getData();
+    // }, []);
+    // const allRecipesRUL = `http://localhost:8080/getAllRecipes`;
 
-    async function getData() {
-        const response = await fetch(allRecipesRUL);
-        const recipes = await response.json();
-        setRecipes(recipes)
-        console.log("now recipes:", recipes)
-    }
+    // async function getData() {
+    //     const response = await fetch(allRecipesRUL);
+    //     const recipes = await response.json();
+    //     setRecipes(recipes)
+    //     console.log("now recipes:", recipes)
+    // }
 
 
     return(

@@ -54,7 +54,7 @@ export default function QuizList() {
 
 
     const initialQuizList = [];
-    const [quizs, setQuizs] = useState(quizList);
+    const [quizList, setQuizList] = useState(quizList);
 
     useEffect(() => {
         getQuestion();
@@ -64,8 +64,8 @@ export default function QuizList() {
     async function getQuestion() {
         const questionURL = `http://localhost:8080/getQuizs?country=China`;
         const response = await fetch(questionURL);
-        const quizList = await response.json();
-        setQuizs(quizList)
+        const quizs = await response.json();
+        setQuizList(quizs)
     }
 
     function calculateScore() {
