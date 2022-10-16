@@ -11,6 +11,7 @@ import SignIn from './components/SignIn';
 import Register from "./components/Register";
 import QuizList from "./components/Quiz";
 import CheckList from "./components/CheckList";
+import Result from "./components/Result";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             <Route path='checklist' element={<CheckList />} />
             <Route path='register' element={<Register />} />
             <Route path='quiz' element={<QuizList />} />
-            <Route path='checklist' element={<CheckList />} />
+            <Route path='result' element={<Result />} />
         </Routes>
         {/* <Footer /> */}
     </BrowserRouter>

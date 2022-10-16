@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link,useLocation, useNavigate } from 'react-router-dom';
 import '../css/Styles.css';
 import HeadImg from '../img/search3.png';
@@ -44,27 +44,77 @@ export default function Search() {
             </div>
         )
     }
+
+    const ingredient = useRef(null);
+    const Cusine = useRef(null);
+    const recipeName = useRef(null);
+
+    const initialRecipes = [];
+    const [recipes, setRecipes] = useState(initialRecipes);
+
+    const filterURL = `http://localhost:8080/filter?cookingTime=60&ingredient=${ingredient}&nationality=${Cusine}`;
+    const searchRUL = `http://localhost:8080/searchRecipe?recipeName=${recipeName}`
+
+    async function search() {
+        const response = await fetch(searchRUL);
+        const recipes = await response.json();
+        setRecipes(recipes);
+    }
+    async function filter() {
+        const response = await fetch(filterURL);
+        const recipes = await response.json();
+        setRecipes(recipes);
+    }
+    // const rrecipe = [
+    //     {first : "a"},
+    //     {second : "b"},
+    // ]
+    const navigate2 = useNavigate();
+
+    function SearchByName() {
+        console.log("search", recipeName.current.value)
+        search();
+        console.log("Recipes", recipes)
+        const toResult= () => {
+            navigate2('/Result', {state: recipes})
+        }
+        toResult()
+    }
+
+    const confirmFilter = event => {
+        event.preventDefault();
+        console.log("filter", ingredient.current.value, Cusine.current.value)
+        filter();
+        console.log("Recipes", recipes)
+        const toResult= () => {
+            navigate2('/Result', {state: recipes})
+        }
+        toResult()
+    }
     
     return(
         <>
         <div className='body'>
             <div className='search-header'>
-                <input className='search-input'/>
-                <img src={HeadImg} style={{float:'right', marginLeft:'3%'}} />
+                <input type="text" ref={recipeName} placeholder="Search recipe name, eg ..." className='search-input'/>
+                <img src={HeadImg} onClick={SearchByName} style={{float:'right', marginLeft:'3%'}} />
             </div>
+            
             <div className='search-title'>
-                <h1>INGREDIENT</h1>
+                <h1>Filter</h1>
             </div>
-            <div className='meet'>
-                <p>MEET</p>
-                <div className='test'>test</div>
-            </div>
-            <div className='vegetables'>
-                <p>VEGETABLES</p>
-            </div>
-            <div className='other'>
-                <p>OTHER</p>
-            </div>
+            <form onSubmit={confirmFilter}>
+                <p>Filter by ingredient:</p>
+                <label><input type="text" ref={ingredient} name="username" placeholder="Input Ingredient" className='filter-input'/></label>
+                <p>Tips:Search the recipe including your input ingredient, eg. eggs, milk, apple...</p>
+                <br/>
+                <hr />
+                <p>Filter by Cusine:</p>
+                <label><input type="text" ref={Cusine} name="username" placeholder="Input Cusine" className='filter-input'/></label>
+                <p>Tips:Search the recipe based on cusine, eg. Italy, Chinese, Thai...</p>
+                <br/>
+                <button type="submit" className='register-button'>Confirm</button>
+            </form>
         </div>
         {NavBar()}
         </>
