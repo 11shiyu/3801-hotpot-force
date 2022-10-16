@@ -56,7 +56,8 @@ export default function Create() {
     const ingredient = useRef(null);
 
     const handleButtonClick = event => {
-        const createRecipeURL = `http://localhost:8080/createRecipe?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath='null'&description=${description.current.value}`;
+        const createRecipeURL = `http://localhost:8080/createRecipeBYIngredients?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath='null'&description=${description.current.value}&ingredients=${ingredient.current.value}`;
+        http://localhost:8080/createRecipeBYIngredients?cookingTime=123123&recipeName=111&description=1231223&ingredients=thisissth&nationality=123123&photoPath=123123
 
         event.preventDefault();
         console.log("recipeName->", recipeName.current.value)
@@ -70,7 +71,7 @@ export default function Create() {
             {"nationality": nationality.current.value},
             {"photoPath": photoPath},
             {"cultureBackground": cultureBackground.current.value},
-            {"ingredient" : ingredient.current.value},
+            {"ingredients" : ingredient.current.value},
         ];
 
         console.log("registerData->", JSON.stringify(recipeData))
@@ -78,7 +79,7 @@ export default function Create() {
 
         fetch(createRecipeURL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(recipeData),
         })
 
