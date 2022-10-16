@@ -81,24 +81,28 @@ export default function CheckList() {
 
     return (
         <>
-            <header>
-                <h1>CheckList</h1>
-            </header>
-            <TodoCreator addTodo={addTodo} />
-            <hr />
-            <main>
-                <h2>List of Ingredient</h2>
-                {todos.sort(sortTodos).map((todo) => (
-                    <Todo
-                    key={todo.task}
-                    {...todo}
-                    toggleCompleted={() => toggleCompleted(todo)}
-                    deleteTodo={() => deleteTodo(todo)} // 每次render都会检查 
-                    />
-                ))}
-            </main>
-
-            {NavBar()}
+        <div style={{minHeight:'565pt', backgroundColor:'rgb(234,144,48)'}}>
+            <div style={{height:'1pt'}}/>
+            <div className='check-body'>
+                <header className='check-title'>
+                    <h1>CheckList</h1>
+                </header>
+                <TodoCreator addTodo={addTodo} />
+                <hr />
+                <main className='check-list'>
+                    <h2>List of Ingredient</h2>
+                    {todos.sort(sortTodos).map((todo) => (
+                        <Todo
+                        key={todo.task}
+                        {...todo}
+                        toggleCompleted={() => toggleCompleted(todo)}
+                        deleteTodo={() => deleteTodo(todo)} // 每次render都会检查 
+                        />
+                    ))}
+                </main>
+            </div>
+        </div>
+        {NavBar()}
         </>
     );
 }
@@ -118,18 +122,19 @@ function TodoCreator({ addTodo }) {
     };
     
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='check-add'>
             <h2>Add Your Ingredient</h2>
             <label>
-                Ingredient:
                 <input
                 type="text"
                 name="task"
+                placeholder='Add your ingredient'
                 value={todo.task}
                 onChange={handleChangeTask} // 处理 传参有改变时
+                className='add-ingredient'
                 />
             </label>
-            <button type="submit">Add</button>
+            <button type="submit" className='add-button'>Add</button>
         </form>
     );
 
@@ -147,12 +152,12 @@ function Todo({ task, completed, toggleCompleted, deleteTodo }) {
     
     return (
         <>
-        <section>
-            <input type="checkbox" checked={completed} onChange={toggleCompleted} />
+        <section className='check-section'>
+            <input type="checkbox" checked={completed} onChange={toggleCompleted} className='check-box' />
             <p style={taskStyle()}>
                 {task}
             </p>
-            <button onClick={deleteTodo}>Delete</button>
+            <button onClick={deleteTodo} className='check-delete'>Delete</button>
         </section>
         </>
     );

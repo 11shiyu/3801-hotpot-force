@@ -87,7 +87,7 @@ export default function Create() {
 
     return (
         <>
-        <div style={{minHeight:'570pt'}}>
+        <div style={{minHeight:'540pt'}}>
         <h3 className='create-recipe-title'>Create your Recipe</h3>
             <form onSubmit={handleButtonClick} className='create-body'>
                 {/* <!-- username input--> */}
