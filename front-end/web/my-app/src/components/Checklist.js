@@ -5,8 +5,8 @@ import { Adobo, Sushi, RicePaperRolls, PizzaMargherita } from '../data/ingredien
 
 import SearchImg from '../img/filter.png';
 import HomeImg from '../img/home.png';
-import Share from '../img/share.png';
-import Shop from '../img/hot.png';
+import ShareImg from '../img/share.png';
+import ShopImg from '../img/hot.png';
 import MeImg from '../img/me.png';
 
 
@@ -23,21 +23,36 @@ export default function CheckList() {
     console.log(user);
 
     const navigate= useNavigate();
-    const toMe= () => {
-        navigate('/me', {state: user})
+    function NavBar() {
+        console.log(user);
+        const toMe= () => {
+            navigate('/me', {state: user})
+        }
+        const toHome= () => {
+            navigate('/Home', {state: user})
+        }
+        const toCreate= () => {
+            navigate('/Create', {state: user})
+        }
+        const toSearch= () => {
+            navigate('/Search', {state: user})
+        }
+        const toChecklist= () => {
+            navigate('/Checklist', {state: user})
+        }
+        
+        return (
+            <div className='navigation-bar'>
+            <button onClick={toSearch} className='searchBtn'><img src={SearchImg} className='search-img' />Search</button>
+            <button onClick={toHome} className='homeBtn'><img src={HomeImg} className='home-img' />Home</button>
+            <button onClick={toCreate} className='createBtn'><img src={ShareImg} className='share-img' /></button>
+            <button onClick={toChecklist} className='checklistBtn'><img src={ShopImg} className='shop-img' />CheckList</button>
+            <button onClick={toMe} className='meBtn'><img src={MeImg} className='me-img' />Me</button>
+            </div>
+        )
     }
-    const toHome= () => {
-        navigate('/Home', {state: user})
-    }
-    const toCreate= () => {
-        navigate('/Create', {state: user})
-    }
-    const toSearch= () => {
-        navigate('/Search', {state: user})
-    }
-    const toChecklist= () => {
-        navigate('/Checklist', {state: user})
-    }
+
+
     const [todos, setTodos] = useState(initialTodos);
 
     //todo 参数
@@ -83,11 +98,7 @@ export default function CheckList() {
                 ))}
             </main>
 
-            <button onClick={toSearch}><img src={SearchImg} className='search-img' /></button>
-            <button onClick={toHome}><img src={HomeImg} className='home-img' /></button>
-            <button onClick={toCreate}><img src={Share} className='share-img' /></button>
-            <button onClick={toChecklist}><img src={Shop} className='shop-img' /></button>
-            <button onClick={toMe}><img src={MeImg} className='me-img' /></button>
+            {NavBar()}
         </>
     );
 }

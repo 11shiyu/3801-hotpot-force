@@ -115,11 +115,6 @@
     margin-left: 7pt;
 }
 
-.search-img, .home-img, .share-img, .shop-img, .me-img{
-    width: 13%;
-    margin-left: 17pt;
-}
-
 .search-header{
     background-color: rgb(196, 242, 227);
     height: 60pt;
@@ -317,4 +312,16 @@
     width: 30%;
     margin-left: 35%;
     margin-bottom: 10pt;
+}
+
+/*** Navigation bar ***/
+.searchBtn, .homeBtn, .createBtn, .checklistBtn, .meBtn {
+    width: 20%;
+    height: 45pt;
+    border: none;
+    background-color: white;
+    float: left;
+}
+.search-img, .home-img, .share-img, .shop-img, .me-img{
+    width: 100%;
 }
