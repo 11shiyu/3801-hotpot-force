@@ -74,7 +74,7 @@
 }
 
 .body{
-    height: 784px;
+    height: 755px;
     width: 390px;
     background: rgb(237, 247, 213);
 }
@@ -125,7 +125,7 @@
     font-size: 16pt;
     margin-top: 5%;
     margin-left: 5%;
-    border-radius: 10%;
+    border-radius: 10pt;
     text-indent: 3%;
 }
 .search-title{
@@ -388,6 +388,34 @@
     background-color: rgb(234, 144, 48);
     border-radius: 10pt;
     border: none;
+}
+
+/*** Filter ***/
+.search-section{
+    height: 400pt;
+} p{
+    font-size: large;
+}
+.filter-input{
+    margin-left: 10%;
+    height: 20pt;
+    border: none;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    background-color: lightgray;
+}
+.filter-confirm{
+    margin-left: 35%;
+    font-size: larger;
+    width: 30%;
+    height: 30pt;
+    background-color: rgb(234, 144, 48);
+    border-radius: 10pt;
+    border: none;
+}
+.filter-confirm:active{
+    background-color:dimgrey;
+    color: white;
 }
 
 /*** Navigation bar ***/

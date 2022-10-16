@@ -105,17 +105,17 @@ export default function Search() {
             <div className='search-title'>
                 <h1>Filter</h1>
             </div>
-            <form onSubmit={confirmFilter}>
+            <form onSubmit={confirmFilter} className='search-section'>
                 <p>Filter by ingredient:</p>
                 <label><input type="text" ref={ingredient} name="username" placeholder="Input Ingredient" className='filter-input'/></label>
-                <p>Tips:Search the recipe including your input ingredient, eg. eggs, milk, apple...</p>
+                <p style={{width:"80%"}}>Tips:Search the recipe including your input ingredient, eg. eggs, milk, apple...</p>
                 <br/>
                 <hr />
-                <p>Filter by Cusine:</p>
+                <p style={{marginTop:"30pt"}}>Filter by Cusine:</p>
                 <label><input type="text" ref={Cusine} name="username" placeholder="Input Cusine" className='filter-input'/></label>
-                <p>Tips:Search the recipe based on cusine, eg. Italy, Chinese, Thai...</p>
+                <p style={{width:"80%"}}>Tips:Search the recipe based on cusine, eg. Italy, Chinese, Thai...</p>
                 <br/>
-                <button type="submit" className='register-button'>Confirm</button>
+                <button type="submit" className='filter-confirm'>Confirm</button>
             </form>
         </div>
         {NavBar()}
