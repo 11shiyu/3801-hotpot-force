@@ -40,6 +40,9 @@ export default function Home() {
     const toChecklist= () => {
         navigate('/Checklist', {state: user})
     }
+    const toQuiz= () => {
+        navigate('/Quiz', {state: user})
+    }
 
     // const [samples, setSamples] = useState(SampleList);
 
@@ -47,8 +50,8 @@ export default function Home() {
         <>
         <div className='body'>
             <div className='home-header'>
-            <Link to = '/home' style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</Link>      
-            <Link to = '/Quiz' style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</Link>
+            <button onClick={toHome} style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</button>      
+            <button onClick={toQuiz} style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</button>
             </div>
             <div className='section'>
                 <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>

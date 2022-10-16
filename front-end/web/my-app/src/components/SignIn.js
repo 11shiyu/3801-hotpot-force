@@ -33,8 +33,8 @@ export default function SignIn() {
     }
 
     const signIn= useNavigate();
-    const toMe= () => {
-        signIn('/Me', {state: username.current.value})
+    const toHome= () => {
+        signIn('/Home', {state: username.current.value})
     }
     
     console.log(username)
@@ -62,7 +62,7 @@ export default function SignIn() {
             </div>
             <div style={{height:'50pt'}}>
                 {/* <Link to='home' state={user=username}> */}
-                    <button className='sign-Btn' type='primary' onClick={toMe}>Sign In</button>
+                    <button className='sign-Btn' type='primary' onClick={toHome}>Sign In</button>
                 {/* </Link> */}
             </div>
             <div className='policy'>
