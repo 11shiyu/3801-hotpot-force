@@ -63,8 +63,8 @@ export default function Home() {
         <>
         <div className='body'>
             <div className='home-header'>
-            <button onClick={toHome} style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</button>      
-            <button onClick={toQuiz} style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</button>
+            <button onClick={toHome} style={{textDecoration:'none'}} className='explore-btn'>Explore</button>      
+            <button onClick={toQuiz} style={{float:'right', textDecoration:'none'}} className='quiz-btn'>Quiz</button>
             </div>
             <div className='section'>
                 <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>
