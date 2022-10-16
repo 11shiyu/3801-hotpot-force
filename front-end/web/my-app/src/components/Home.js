@@ -33,7 +33,6 @@ export default function Home() {
         const toMe= () => {
             navigate('/me', {state: user})
         }
-        
         const toCreate= () => {
             navigate('/Create', {state: user})
         }
@@ -43,7 +42,6 @@ export default function Home() {
         const toChecklist= () => {
             navigate('/Checklist', {state: user})
         }
-
         return (
             <div className='navigation-bar'>
             <button onClick={toSearch} className='searchBtn'><img src={SearchImg} className='search-img' />Search</button>
@@ -55,9 +53,16 @@ export default function Home() {
         )
     }
 
-    
+    useEffect(() => {
+        getData();
+    }, []);
+    const get allRecipesRUL = `http://localhost:8080/getAllRecipes`;
 
-    // const [samples, setSamples] = useState(SampleList);
+    async function getData() {
+        const response = await fetch(allRecipesRUL);
+        const recipes = await response.json();
+    }
+
 
     return(
         <>
@@ -66,7 +71,8 @@ export default function Home() {
             <button onClick={toHome} style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</button>      
             <button onClick={toQuiz} style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</button>
             </div>
-            <div className='section'>
+
+            {/* <div className='section'>
                 <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>
                 <div className='section-desc'>Grapes Cream Cookies! Creamy and thick~</div>
                 <div className='section-creater'>
@@ -75,7 +81,14 @@ export default function Home() {
                     <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onclick={Like} id='like1'/>
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
                 </div>
-            </div>
+            </div> */}
+            {recipes.map((recipe) => (
+                <Recipe
+                key={recipe.id}
+                recipeName = {recipe.recipeName}
+                photoPath = {recipe.photoPath}
+                />
+            ))}
         </div>
         {NavBar()}
         </>
@@ -96,23 +109,23 @@ function Like() {
     
 }
 
-// function Sample1({ task, completed, toggleCompleted }) {
-    
-//     return (
-//         <section >
-//             <div className='Sample-Section'>
-//                 <Link to=''>
-//                     <img src={Cookie} className='section-img' />
-//                     <p>{task.description}</p>
-//                     <div>
-//                         <img src={HeadImg} className='person-img' />
-//                         {task.name}
-//                         <img src={Like1} className='like' onClick={1} />
-//                     </div>
-//                 </Link>
-                
-//             </div>
-            
-//         </section>
-//     )
-// }
+function Recipe(recipeName, photoPath) {
+
+
+    return(
+        <>
+        <div className='body'>
+            <div className='section'>
+                <Link to=''><img src={photoPath} className='section-img' alt='section-img'/></Link>
+                <div className='section-desc'>{recipeName}</div>
+                <div className='section-creater'>
+                    <img src={HeadImg} />
+                    <a>Nancy</a>
+                    <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onclick={Like} id='like1'/>
+                    <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
+                </div>
+            </div>
+        </div>
+        </>
+    )
+}
