@@ -123,6 +123,7 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
         const questionURL = `http://localhost:8080/checkQuizAns?userAnswer=${select}&question=${question}`;
         const response = await fetch(questionURL);
         const result = await response.json();
+        console.log("get select->", select)
         console.log("get result->", result)
         setResult(result)
     }

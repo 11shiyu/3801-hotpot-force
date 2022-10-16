@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import '../css/Styles.css';
-// import recipeList from ''
+//import recipeList from './data/recipe.js'
 import SearchImg from '../img/filter.png';
 import HomeImg from '../img/home.png';
 import ShareImg from '../img/share.png';
@@ -86,7 +86,7 @@ export default function Home() {
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
                 </div>
             </div> */
-            {/* {recipes.map((recipe) => (
+            {/* {recipeList.map((recipe) => (
                 <Recipe
                 key={recipe.id}
                 recipeName = {recipe.recipeName}
