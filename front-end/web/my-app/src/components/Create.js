@@ -33,7 +33,7 @@ export default function Create() {
     const createRecipeURL = '';
     const createIngredientURL = '';
 
-    console.log("come Create")
+    // console.log("come Create")
     const recipeName = useRef(null);
     const cookingTime = useRef(null);
     const description = useRef(null);
@@ -55,24 +55,20 @@ export default function Create() {
             {"nationality": nationality.current.value},
             {"photoPath": photoPath},
             {"cultureBackground": cultureBackground.current.value},
+            {"ingredient" : ingredient.current.value},
         ];
 
-        const ingredientData = [
-            {"ingredient": ingredient.current.value},
-        ];
+        const ingredientData = ingredient.current.value;
 
         console.log("registerData->", JSON.stringify(recipeData))
         console.log("ingredientData->", JSON.stringify(ingredientData))
 
         fetch(createRecipeURL, {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(recipeData),
         })
 
-        fetch(createIngredientURL, {
-            method: 'POST',
-            body: JSON.stringify(ingredientData),
-        })
     }
 
     return (
