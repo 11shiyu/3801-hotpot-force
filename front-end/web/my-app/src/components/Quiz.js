@@ -17,6 +17,12 @@ export default function QuizList() {
     console.log(user);
 
     const navigate= useNavigate();
+    const toHome= () => {
+        navigate('/Home', {state: user})
+    }
+    const toQuiz= () => {
+        navigate('/Quiz', {state: user})
+    }
     function NavBar() {
         console.log(user);
         const toMe= () => {
@@ -120,8 +126,8 @@ export default function QuizList() {
 
         <>
         <div className='home-header'>
-            <Link to = '/home' style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</Link>      
-            <Link to = '/Quiz' style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</Link>
+            <button onClick={toHome} style={{marginLeft:'50pt', textDecoration:'none'}}>Explore</button>      
+            <button onClick={toQuiz} style={{marginLeft:'100pt', textDecoration:'none'}}>Quiz</button>
         </div>
         {quizList.map((quiz) => (
             <Quiz
