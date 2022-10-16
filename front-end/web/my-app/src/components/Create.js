@@ -98,28 +98,26 @@ export default function Create() {
 
                 {/* <!-- email input --> */}
                 <p>Description</p>
-                <label><input type="text" ref={description} name="email" id="email" placeholder="Enter your email" className='create-description'/></label>
+                <label><input type="text" ref={description} name="email" id="email" placeholder="Recipe description" className='create-description'/></label>
                 <br/>
 
                 {/* <!-- password input --> */}
                 
-
                 <p>Cusine/Nationality:</p>
-                <label><input type="text" ref={nationality} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
+                <label><input type="text" ref={nationality} name="nationality" id="nationality" placeholder="Enter your nationality" className='create-cusine'/></label>
                 <br/>
 
-                <p>Ingredient:</p>
-                <label><input type="text" ref={ingredient} name="nationality" id="nationality" placeholder="Enter your nationality"/></label>
+                <p style={{marginTop:'15pt'}}>Ingredient:</p>
+                <label><input type="text" ref={ingredient} name="nationality" id="nationality" placeholder="eg. [beef, salt, rice]" className='create-ingredient'/></label>
                 <br/>
 
-                <div style={{marginTop:'20pt', verticalAlign:'middle'}}>
-                    <p style={{float:'left'}}>Cook time</p>
-                    <label><input type="text" ref={cookingTime} name="password" id="password" placeholder="eg. 1 hr 30 mins" className='create-time'/></label>
+                <div style={{marginTop:'15pt', verticalAlign:'middle'}}>
+                    <p style={{float:'left'}} className='cookTime'>Cook time</p>
+                    <input type="text" ref={cookingTime} name="password" id="password" placeholder="eg. 1 hr 30 mins" className='create-time'/>
                     <br/>
                 </div>
-                
-
-                <p style={{marginTop:'20pt'}}>Culture Background:</p>
+        
+                <p style={{marginTop:'30pt'}}>Culture Background:</p>
                 <label><input type="text" ref={cultureBackground} name="nationality" id="nationality" placeholder="eg. origin and story of the dish..." className='create-cultural'/></label>
                 <br/>
 

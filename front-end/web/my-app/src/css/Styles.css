@@ -238,13 +238,37 @@
     border: none;
     margin-bottom: 10pt;
 }
+.create-cusine{
+    width: 92%;
+    height: 40pt;
+    margin-left: 3%;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    font-size: 10pt;
+    background-color: lightgray;
+    border: none;
+}
+.create-ingredient {
+    width: 92%;
+    height: 40pt;
+    margin-left: 3%;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    font-size: 10pt;
+    background-color: lightgray;
+    border: none;
+}
+.cookTime{
+    width: 80pt;
+}
 .create-time{
     text-align: center;
+    float: right;
     margin-top: 0;
+    margin-right: 4%;
     font-size: 10pt;
     height: 30pt;
     width: 52%;
-    margin-left: 45pt;
     border-radius: 10pt;
     color: black;
     background-color: lightgray;
@@ -265,7 +289,7 @@
     float: right;
     font-size: 12pt;
     margin-right: 4%;
-    margin-top: 30pt;
+    margin-top: 15pt;
     height: 30pt;
     width: 50pt;
     border-radius: 10pt;
