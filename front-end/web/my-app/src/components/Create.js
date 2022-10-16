@@ -57,7 +57,7 @@ export default function Create() {
 
     const handleButtonClick = event => {
         const createRecipeURL = `http://localhost:8080/createRecipeBYIngredients?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath='null'&description=${description.current.value}&ingredients=${ingredient.current.value}`;
-        http://localhost:8080/createRecipeBYIngredients?cookingTime=123123&recipeName=111&description=1231223&ingredients=thisissth&nationality=123123&photoPath=123123
+    
 
         event.preventDefault();
         console.log("recipeName->", recipeName.current.value)
