@@ -87,7 +87,6 @@ export default function Home() {
                 </div>
             </div> */}
             {recipes.map((recipe) => (
-                console.log("recipeID", recipe.id)
                 <Recipe
                 key={recipe.id}
                 recipeName = {recipe.recipeName}

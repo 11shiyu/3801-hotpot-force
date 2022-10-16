@@ -53,19 +53,20 @@ export default function QuizList() {
     }
 
 
-    // const initialQuizList = [];
-    // const [quizs, setQuizs] = useState(quizList);
+    const initialQuizList = [];
+    const [quizs, setQuizs] = useState(quizList);
 
-    // useEffect(() => {
-    //     getQuestion();
-    // }, []);
+    useEffect(() => {
+        getQuestion();
+    }, []);
 
-    // //get question and selectionABCD
-    // async function getQuestion() {
-    //     const questionURL = `http://localhost:8080/getQuizs?country=China`;
-    //     const response = await fetch(questionURL);
-    //     const quizList = await response.json();
-    // }
+    //get question and selectionABCD
+    async function getQuestion() {
+        const questionURL = `http://localhost:8080/getQuizs?country=China`;
+        const response = await fetch(questionURL);
+        const quizList = await response.json();
+        setQuizs(quizList)
+    }
 
     function calculateScore() {
         let count = 0;
@@ -80,44 +81,44 @@ export default function QuizList() {
     }
 
 
-    var quizList = [
-        {
-            optionA:"选项一",
-            optionB:"选项二",
-            optionC:"选项三",
-            optionD:"选项四",
-            country:"China",
-            id:1,
-            question:"这里是第一题的内容"
-        },
-        {
-            optionA:"选项一",
-            optionB:"选项二",
-            optionC:"选项三",
-            optionD:"选项四",
-            country:"Japan",
-            id:2,
-            question:"这里是第二题的内容"
-        },
-        {
-            optionA:"选项一",
-            optionB:"选项二",
-            optionC:"选项三",
-            optionD:"选项四",
-            country:"Italy",
-            id:3,
-            question:"这里是第三题的内容"
-        },
-        {
-            optionA:"选项一",
-            optionB:"选项二",
-            optionC:"选项三",
-            optionD:"选项四",
-            country:"Italy",
-            id:4,
-            question:"这里是第四题的内容"
-        },
-    ]
+    // var quizList = [
+    //     {
+    //         optionA:"选项一",
+    //         optionB:"选项二",
+    //         optionC:"选项三",
+    //         optionD:"选项四",
+    //         country:"China",
+    //         id:1,
+    //         question:"这里是第一题的内容"
+    //     },
+    //     {
+    //         optionA:"选项一",
+    //         optionB:"选项二",
+    //         optionC:"选项三",
+    //         optionD:"选项四",
+    //         country:"Japan",
+    //         id:2,
+    //         question:"这里是第二题的内容"
+    //     },
+    //     {
+    //         optionA:"选项一",
+    //         optionB:"选项二",
+    //         optionC:"选项三",
+    //         optionD:"选项四",
+    //         country:"Italy",
+    //         id:3,
+    //         question:"这里是第三题的内容"
+    //     },
+    //     {
+    //         optionA:"选项一",
+    //         optionB:"选项二",
+    //         optionC:"选项三",
+    //         optionD:"选项四",
+    //         country:"Italy",
+    //         id:4,
+    //         question:"这里是第四题的内容"
+    //     },
+    // ]
 
 
     console.log("quizList-->", quizList)
