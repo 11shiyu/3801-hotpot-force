@@ -62,6 +62,8 @@ export default function Create() {
         console.log("recipeName->", recipeName.current.value)
         console.log("nationality->", nationality.current.value)
 
+        let ingredientList = ingredient.current.value.split(', ');
+
         const recipeData = [
             {"cookingTime": cookingTime.current.value},
             {"recipeName": recipeName.current.value},
@@ -69,10 +71,11 @@ export default function Create() {
             {"nationality": nationality.current.value},
             {"photoPath": photoPath},
             {"cultureBackground": cultureBackground.current.value},
-            {"ingredient" : ingredient.current.value},
+            {"ingredient" : ingredientList},
         ];
 
-        const ingredientData = ingredient.current.value;
+
+
 
         console.log("registerData->", JSON.stringify(recipeData))
         console.log("check ingredient", ingredient.current.value)
@@ -108,7 +111,7 @@ export default function Create() {
                 <br/>
 
                 <p style={{marginTop:'15pt'}}>Ingredient:</p>
-                <label><input type="text" ref={ingredient} name="nationality" id="nationality" placeholder="eg. [beef, salt, rice]" className='create-ingredient'/></label>
+                <label><input type="text" ref={ingredient} name="nationality" id="nationality" placeholder="eg. beef, salt, rice" className='create-ingredient'/></label>
                 <br/>
 
                 <div style={{marginTop:'15pt', verticalAlign:'middle'}}>
