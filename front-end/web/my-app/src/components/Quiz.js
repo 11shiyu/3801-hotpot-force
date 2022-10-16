@@ -96,7 +96,7 @@ export default function QuizList() {
             />
         ))}
         <br/>
-        <button type='button' onClick={calculateScore}>submit</button>
+        <button type='button' onClick={calculateScore} className='quiz-submit'><h2>submit</h2></button>
         </>
     )
 }
@@ -140,10 +140,18 @@ function Quiz({id, question, optionA, optionB, optionC, optionD}) {
                     <h2>Question {id}:</h2>
                     <p id="demo-radio-buttons-group-label" className='quiz-question'>{question}</p>
                     {/* <div>question:{id}</div> */}
-                    <div className='quiz-a'><p>{optionA}</p><button type='button' onClick={() => handleClick("a", question, id)}>A</button></div>
-                    <div className='quiz-b'><p>{optionB}</p><button type='button' onClick={() => handleClick("b", question, id)}>B</button></div>
-                    <div className='quiz-c'><p>{optionC}</p><button type='button' onClick={() => handleClick("c", question, id)}>C</button></div>
-                    <div className='quiz-d'><p>{optionD}</p><button type='button' onClick={() => handleClick("d", question, id)}>D</button></div>
+                    <div className='quiz-a'>
+                        <button type='button' onClick={() => handleClick("a", question, id)} style={{width:'20pt', float:'left'}}>A</button><p>{optionA}</p>
+                    </div>
+                    <div className='quiz-b'>
+                        <button type='button' onClick={() => handleClick("b", question, id)} style={{width:'20pt', float:'left'}}>B</button><p>{optionB}</p>
+                    </div>
+                    <div className='quiz-c'>
+                        <button type='button' onClick={() => handleClick("c", question, id)} style={{width:'20pt', float:'left'}}>C</button><p>{optionC}</p>
+                    </div>
+                    <div className='quiz-d'>
+                        <button type='button' onClick={() => handleClick("d", question, id)} style={{width:'20pt', float:'left'}}>D</button><p>{optionD}</p>
+                    </div>
                 </div>
             </main>
         </>
