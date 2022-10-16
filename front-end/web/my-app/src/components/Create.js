@@ -75,10 +75,11 @@ export default function Create() {
         const ingredientData = ingredient.current.value;
 
         console.log("registerData->", JSON.stringify(recipeData))
+        console.log("check ingredient", ingredient.current.value)
 
         fetch(createRecipeURL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
             body: JSON.stringify(recipeData),
         })
 
