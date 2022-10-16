@@ -67,7 +67,7 @@ export default function Home() {
             <button onClick={toQuiz} style={{float:'right', textDecoration:'none'}} className='quiz-btn'>Quiz</button>
             </div>
             <div className='section'>
-                <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>
+                <Link to='/cookies'><img src={Cookie} className='section-img' alt='section-img'/></Link>
                 <div className='section-desc'>Grapes Cream Cookies! Creamy and thick~</div>
                 <div className='section-creater'>
                     <img src={HeadImg} />

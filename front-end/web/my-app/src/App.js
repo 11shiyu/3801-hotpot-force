@@ -12,6 +12,7 @@ import Register from "./components/Register";
 import QuizList from "./components/Quiz";
 import CheckList from "./components/CheckList";
 import Result from "./components/Result";
+import Cookie from "./components/Cookies";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path='register' element={<Register />} />
             <Route path='quiz' element={<QuizList />} />
             <Route path='result' element={<Result />} />
+            <Route path='cookies' element={<Cookie />} />
         </Routes>
         {/* <Footer /> */}
     </BrowserRouter>

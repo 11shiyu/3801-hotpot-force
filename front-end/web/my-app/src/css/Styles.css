@@ -431,6 +431,51 @@
     color: white;
 }
 
+/*** Cookies ***/
+.cookies-header{
+    height: 50pt;
+    border-bottom: solid black;
+}
+.cookies-follow{
+    float: right;
+    width: 20%;
+    height: 20pt;
+    margin-top: 15pt;
+    margin-right: 10%;
+    border-radius: 10pt;
+    color: rgb(255, 166, 51);
+    border-color: rgb(255, 166, 51);
+    background-color: white;
+}
+.cookies-section{
+    min-height: auto;
+    color: rgb(112, 112, 112);
+}
+.cookies-title{
+    height: 60pt;
+    border-bottom: solid rgb(209, 204, 204);
+    width: 90%;
+    margin-left: 5%;
+} h2{
+    margin-left: 5%;
+    margin-top: 1%;
+} h3{
+    width: 50%;
+    margin-left: 5%;
+    margin-top: -3%;
+}
+.cookies-ingredients{
+    width: 90%;
+    margin-left: 5%;
+}
+.cookies-progress{
+    height: 200pt;
+    width: 90%;
+    margin-left: 5%;
+} ul li{
+    list-style-type: decimal;
+}
+
 /*** Navigation bar ***/
 .searchBtn, .homeBtn, .createBtn, .checklistBtn, .meBtn {
     width: 20%;
