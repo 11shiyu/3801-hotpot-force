@@ -7,6 +7,7 @@ import Background from '../img/background.png';
 import HeadImg from '../img/search3.png';
 import Like1 from '../img/like1.png';
 import Like2 from '../img/like2.png';
+import image1 from '../img/Adobo.jpg';
 
 export default function Result() {
     const recipes = useLocation().state;
@@ -45,7 +46,7 @@ function Recipe(recipeName, photoPath) {
         <>
         <div className='body'>
             <div className='section'>
-                <Link to=''><img src={photoPath} className='section-img' alt='section-img'/></Link>
+                <Link to=''><img src={image1} className='section-img' alt='section-img'/></Link>
                 <div className='section-desc'>{recipeName}</div>
                 <div className='section-creater'>
                     <img src={HeadImg} />

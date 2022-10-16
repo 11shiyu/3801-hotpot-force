@@ -13,6 +13,9 @@ import HeadImg from '../img/search3.png';
 import Like1 from '../img/like1.png';
 import Like2 from '../img/like2.png';
 import image1 from '../img/Adobo.jpg';
+import image2 from '../img/Sushi.jpg';
+import image3 from '../img/Rice-Paper-Rolls.jpg';
+import image4 from '../img/Pizza.jpg';
 
 const recipeList = [
     {
@@ -20,7 +23,7 @@ const recipeList = [
         recipeName: "Adobo",
         description: "A way of cooking introduced by the Spanish and Portuguese led to adobo, a traditional Philippine dish. Chicken or pork are marinated and cooked in white vinegar, soy sauce, garlic, peppercorns and bay leaves, then poured over rice for a flavorful combination.",
         nationality: "Philippines",
-        photoPath: {image1},
+        photoPath: '../img/Adobo.jpg',
         cultureBackground: "Like many cultures based in warm climates, Filipino natives developed various methods of preserving food. Adobo utilizes the acid in the vinegar and the high salt content of soy sauce to produce an undesirable environment for bacteria. Its delicious flavor and preserving qualities served to increase adobo's popularity. The adobo was traditionally cooked in clay pots but today is made in more common metal pots or woks.\n\nWhen the Spanish invaded and settled in the Philippines during the 16th century, they witnessed this traditional Filipino cooking method and called it adobo, which is the Spanish word for marinade.",
         id: 1
     },
@@ -120,14 +123,68 @@ export default function Home() {
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
                 </div>
             </div>
-            {recipeList.map((recipe) => (
+            {/* {recipeList.map((recipe) => (
                 <Recipe
                 key={recipe.id}
                 {...recipe}
                 recipeName = {recipe.recipeName}
                 photoPath = {recipe.photoPath}
                 />
-            ))}
+            ))} */}
+
+            <div className='body'>
+                <div className='section'>
+                    <Link to=''><img src={image1} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                    <div className='section-desc'>Adobo</div>
+                    <div className='section-creater'>
+                        <img src={HeadImg} />
+                        <a>Nancy</a>
+                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
+                    </div>
+                </div>
+            </div>
+
+            <div className='body'>
+                <div className='section'>
+                    <Link to=''><img src={image2} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                    <div className='section-desc'>Sushi</div>
+                    <div className='section-creater'>
+                        <img src={HeadImg} />
+                        <a>Nancy</a>
+                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
+                    </div>
+                </div>
+            </div>
+
+            <div className='body'>
+                <div className='section'>
+                    <Link to=''><img src={image3} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                    <div className='section-desc'>Rice Paper Rolls</div>
+                    <div className='section-creater'>
+                        <img src={HeadImg} />
+                        <a>Nancy</a>
+                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
+                    </div>
+                </div>
+            </div>
+
+            <div className='body'>
+                <div className='section'>
+                    <Link to=''><img src={image4} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                    <div className='section-desc'>Pizza</div>
+                    <div className='section-creater'>
+                        <img src={HeadImg} />
+                        <a>Nancy</a>
+                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         {NavBar()}
         </>
