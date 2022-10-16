@@ -54,7 +54,7 @@ export default function QuizList() {
 
 
     const initialQuizList = [];
-    const [quizList, setQuizList] = useState(quizList);
+    const [quizList, setQuizList] = useState(initialQuizList);
 
     useEffect(() => {
         getQuestion();
@@ -79,47 +79,6 @@ export default function QuizList() {
         return count;
 
     }
-
-
-    // var quizList = [
-    //     {
-    //         optionA:"选项一",
-    //         optionB:"选项二",
-    //         optionC:"选项三",
-    //         optionD:"选项四",
-    //         country:"China",
-    //         id:1,
-    //         question:"这里是第一题的内容"
-    //     },
-    //     {
-    //         optionA:"选项一",
-    //         optionB:"选项二",
-    //         optionC:"选项三",
-    //         optionD:"选项四",
-    //         country:"Japan",
-    //         id:2,
-    //         question:"这里是第二题的内容"
-    //     },
-    //     {
-    //         optionA:"选项一",
-    //         optionB:"选项二",
-    //         optionC:"选项三",
-    //         optionD:"选项四",
-    //         country:"Italy",
-    //         id:3,
-    //         question:"这里是第三题的内容"
-    //     },
-    //     {
-    //         optionA:"选项一",
-    //         optionB:"选项二",
-    //         optionC:"选项三",
-    //         optionD:"选项四",
-    //         country:"Italy",
-    //         id:4,
-    //         question:"这里是第四题的内容"
-    //     },
-    // ]
-
 
     console.log("quizList-->", quizList)
 
@@ -157,18 +116,21 @@ const userSelection = [
 ];
 
 function Quiz({id, question, optionA, optionB, optionC, optionD}) {
+    const initialResult = false;
+    const [result, setResult] = useState(initialResult);
 
     async function getAnswer(select, question) {
         const questionURL = `http://localhost:8080/checkQuizAns?userAnswer=${select}&question=${question}`;
         const response = await fetch(questionURL);
         const result = await response.json();
+        setResult(result)
     }
     
     
     function handleClick(select, question, id) {
         console.log("click:", select, question)
-        const result = getAnswer(select, question);
-        userSelection[id - 1] = true;
+        getAnswer(select, question);
+        userSelection[id - 1] = result;
         // if (select === 'a') {
         //     userSelection.id = true;
         // } else if (select === 'b') {
