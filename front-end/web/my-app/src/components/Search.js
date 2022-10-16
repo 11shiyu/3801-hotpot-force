@@ -59,12 +59,21 @@ export default function Search() {
         const recipes = await response.json();
         setRecipes(recipes);
         console.log("new recipes!", recipes)
+        const toResult= () => {
+            navigate2('/Result', {state: recipes})
+        }
+        toResult()
     }
     async function filter() {
         const filterURL = `http://localhost:8080/filter?cookingTime=60&ingredient=${ingredient.current.value}&nationality=${Cusine.current.value}`;
         const response = await fetch(filterURL);
         const recipes = await response.json();
         setRecipes(recipes);
+        console.log("new filter!", recipes)
+        const toResult= () => {
+            navigate2('/Result', {state: recipes})
+        }
+        toResult()
     }
     // const rrecipe = [
     //     {first : "a"},
@@ -75,22 +84,14 @@ export default function Search() {
     function SearchByName() {
         console.log("search", recipeName.current.value)
         search();
-        console.log("Recipes", recipes)
-        const toResult= () => {
-            navigate2('/Result', {state: recipes})
-        }
-        toResult()
+
     }
 
     const confirmFilter = event => {
         event.preventDefault();
         console.log("filter", ingredient.current.value, Cusine.current.value)
         filter();
-        console.log("Recipes", recipes)
-        const toResult= () => {
-            navigate2('/Result', {state: recipes})
-        }
-        toResult()
+
     }
     
     return(
