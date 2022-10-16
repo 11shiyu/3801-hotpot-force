@@ -44,8 +44,6 @@ export default function Create() {
     }
 
 
-    const createRecipeURL = '';
-    const createIngredientURL = '';
 
     // console.log("come Create")
     const recipeName = useRef(null);
@@ -58,6 +56,8 @@ export default function Create() {
     const ingredient = useRef(null);
 
     const handleButtonClick = event => {
+        const createRecipeURL = `http://localhost:8080/createRecipe?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath='null'&description=${description.current.value}`;
+
         event.preventDefault();
         console.log("recipeName->", recipeName.current.value)
         console.log("nationality->", nationality.current.value)
@@ -75,7 +75,6 @@ export default function Create() {
         const ingredientData = ingredient.current.value;
 
         console.log("registerData->", JSON.stringify(recipeData))
-        console.log("ingredientData->", JSON.stringify(ingredientData))
 
         fetch(createRecipeURL, {
             method: 'POST',
