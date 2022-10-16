@@ -75,14 +75,8 @@ export default function Home() {
             <button onClick={toHome} style={{textDecoration:'none'}} className='explore-btn'>Explore</button>      
             <button onClick={toQuiz} style={{float:'right', textDecoration:'none'}} className='quiz-btn'>Quiz</button>
             </div>
-<<<<<<< HEAD
             <div className='section'>
                 <Link to='/cookies'><img src={Cookie} className='section-img' alt='section-img'/></Link>
-=======
-
-            {/* <div className='section'>
-                <Link to=''><img src={Cookie} className='section-img' alt='section-img'/></Link>
->>>>>>> 14bd5546049c10bb4587519b5a79cec80260d7e7
                 <div className='section-desc'>Grapes Cream Cookies! Creamy and thick~</div>
                 <div className='section-creater'>
                     <img src={HeadImg} />
@@ -90,9 +84,8 @@ export default function Home() {
                     <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onclick={Like} id='like1'/>
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
                 </div>
-            </div> */}
+            </div> */
             {recipes.map((recipe) => (
-                console.log("recipeID", recipe.id)
                 <Recipe
                 key={recipe.id}
                 recipeName = {recipe.recipeName}
