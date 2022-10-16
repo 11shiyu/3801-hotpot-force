@@ -90,6 +90,19 @@
     margin-left: 10%;
     font-size: 15pt;
 }
+.explore-btn, .quiz-btn{
+    width: 50%;
+    height: 30pt;
+    border-top: none;
+    background-color: rgb(196, 242, 227);
+    border-right: none;
+}
+.explore-btn{
+    border-left: none;
+}
+.quiz-btn{
+    border-right: none;
+}
 .section{
     width: 90%;
     height: 330pt;
