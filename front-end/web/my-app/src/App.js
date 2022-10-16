@@ -22,7 +22,7 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='me' element={<Me />} />
             <Route path='search' element={<Search />} />
-            <Route path='checklist' element={<Checklist />} />
+            <Route path='checklist' element={<CheckList />} />
             <Route path='register' element={<Register />} />
             <Route path='quiz' element={<QuizList />} />
             <Route path='checklist' element={<CheckList />} />

@@ -1,7 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Styles.css';
 import { Adobo, Sushi, RicePaperRolls, PizzaMargherita } from '../data/ingredient';
+
+import SearchImg from '../img/filter.png';
+import HomeImg from '../img/home.png';
+import Share from '../img/share.png';
+import Shop from '../img/hot.png';
+import MeImg from '../img/me.png';
+
 
 const initialTodos = [
     { task: "Low Flour", completed: false },
@@ -12,7 +19,27 @@ const initialTodos = [
 ];
 
 export default function CheckList() {
+    const user = useLocation().state;
+    console.log(user);
+
+    const navigate= useNavigate();
+    const toMe= () => {
+        navigate('/me', {state: user})
+    }
+    const toHome= () => {
+        navigate('/Home', {state: user})
+    }
+    const toCreate= () => {
+        navigate('/Create', {state: user})
+    }
+    const toSearch= () => {
+        navigate('/Search', {state: user})
+    }
+    const toChecklist= () => {
+        navigate('/Checklist', {state: user})
+    }
     const [todos, setTodos] = useState(initialTodos);
+
     //todo 参数
     const addTodo = (todo) => {
         setTodos([...todos, todo]);
@@ -55,6 +82,12 @@ export default function CheckList() {
                     />
                 ))}
             </main>
+
+            <button onClick={toSearch}><img src={SearchImg} className='search-img' /></button>
+            <button onClick={toHome}><img src={HomeImg} className='home-img' /></button>
+            <button onClick={toCreate}><img src={Share} className='share-img' /></button>
+            <button onClick={toChecklist}><img src={Shop} className='shop-img' /></button>
+            <button onClick={toMe}><img src={MeImg} className='me-img' /></button>
         </>
     );
 }
@@ -102,6 +135,7 @@ function Todo({ task, completed, toggleCompleted, deleteTodo }) {
     };
     
     return (
+        <>
         <section>
             <input type="checkbox" checked={completed} onChange={toggleCompleted} />
             <p style={taskStyle()}>
@@ -109,6 +143,7 @@ function Todo({ task, completed, toggleCompleted, deleteTodo }) {
             </p>
             <button onClick={deleteTodo}>Delete</button>
         </section>
+        </>
     );
 
 }
