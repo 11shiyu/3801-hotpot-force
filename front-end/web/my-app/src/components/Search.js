@@ -52,8 +52,8 @@ export default function Search() {
     const initialRecipes = [];
     const [recipes, setRecipes] = useState(initialRecipes);
 
-    const filterURL = `http://localhost:8080/filter?cookingTime=60&ingredient=${ingredient}&nationality=${Cusine}`;
-    const searchRUL = `http://localhost:8080/searchRecipe?recipeName=${recipeName}`
+    const filterURL = `http://localhost:8080/filter?cookingTime=60&ingredient=${ingredient.current.value}&nationality=${Cusine.current.value}`;
+    const searchRUL = `http://localhost:8080/searchRecipe?recipeName=${recipeName.current.value}`
 
     async function search() {
         const response = await fetch(searchRUL);
