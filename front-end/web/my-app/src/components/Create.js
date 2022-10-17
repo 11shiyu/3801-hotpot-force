@@ -50,13 +50,13 @@ export default function Create() {
     const cookingTime = useRef(null);
     const description = useRef(null);
     const nationality = useRef(null);
-    const photoPath = ''; // need fix
+    const photoPath = useRef(null); // need fix
     const cultureBackground = useRef(null);
 
     const ingredient = useRef(null);
 
     const handleButtonClick = event => {
-        const createRecipeURL = `http://localhost:8080/createRecipeBYIngredients?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath='null'&description=${description.current.value}&ingredients=${ingredient.current.value}`;
+        const createRecipeURL = `http://localhost:8080/createRecipeBYIngredients?cookingTime=${cookingTime.current.value}&recipeName=${recipeName.current.value}&nationality=${nationality.current.value}&photoPath=${photoPath.current.value}&description=${description.current.value}&ingredients=${ingredient.current.value}`;
     
 
         event.preventDefault();
@@ -94,6 +94,10 @@ export default function Create() {
                 <div className='create-title'>
                     <label><input type="text" ref={recipeName} name="username" placeholder="Title" style={{border:'none', fontSize:'20pt'}}/></label>
                 </div>
+                <br/>
+
+                <p>photoPath</p>
+                <label><input type="text" ref={photoPath} name="photoPath" id="photoPath" placeholder="input photoPath" className='create-description'/></label>
                 <br/>
 
                 {/* <!-- email input --> */}
