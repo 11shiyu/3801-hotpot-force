@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Styles.css';
+
+import SearchImg from '../img/filter.png';
 import HomeImg from '../img/home.png';
+import ShareImg from '../img/share.png';
+import ShopImg from '../img/hot.png';
+import MeImg from '../img/me.png';
+
 import Logo from '../img/logo.png';
 import Background from '../img/background.png';
 import HeadImg from '../img/search3.png';
