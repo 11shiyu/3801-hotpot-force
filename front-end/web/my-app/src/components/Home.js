@@ -200,7 +200,7 @@ function Recipe({recipeName, photoPath}) {
         <>
         <div className='body'>
             <div className='section'>
-                <Link to=''><img src={require({photoPath})} className='section-img' alt='section-img'/></Link>
+                <Link to=''><img src={require(`${photoPath}`)} className='section-img' alt='section-img'/></Link>
                 <div className='section-desc'>{recipeName}</div>
                 <div className='section-creater'>
                     <img src={HeadImg} />
