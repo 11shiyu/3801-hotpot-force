@@ -76,6 +76,7 @@ export default function QuizList() {
             }
         })}
         console.log("count->", count)
+        alert("Your score:" + count)
         return count;
 
     }
