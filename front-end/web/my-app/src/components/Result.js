@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Styles.css';
 import HomeImg from '../img/home.png';
 import Logo from '../img/logo.png';
@@ -14,24 +14,24 @@ export default function Result() {
 
     const navigate= useNavigate();
     const toHome= () => {
-        navigate('/Home', {state: user})
+        navigate('/Home', {state: recipes})
     }
     const toQuiz= () => {
-        navigate('/Quiz', {state: user})
+        navigate('/Quiz', {state: recipes})
     }
     function NavBar() {
-        console.log(user);
+        console.log(recipes);
         const toMe= () => {
-            navigate('/me', {state: user})
+            navigate('/me', {state: recipes})
         }
         const toCreate= () => {
-            navigate('/Create', {state: user})
+            navigate('/Create', {state: recipes})
         }
         const toSearch= () => {
-            navigate('/Search', {state: user})
+            navigate('/Search', {state: recipes})
         }
         const toChecklist= () => {
-            navigate('/Checklist', {state: user})
+            navigate('/Checklist', {state: recipes})
         }
         return (
             <div className='navigation-bar'>
@@ -45,7 +45,7 @@ export default function Result() {
     }
 
 
-    
+
     return(
         <>
         <div className='body'>
