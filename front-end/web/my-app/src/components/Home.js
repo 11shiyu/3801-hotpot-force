@@ -123,16 +123,8 @@ export default function Home() {
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onclick={Like} id='like2'/>
                 </div>
             </div>
-            {recipeList.map((recipe) => (
-                <Recipe
-                key={recipe.id}
-                {...recipe}
-                recipeName = {recipe.recipeName}
-                photoPath = {recipe.photoPath}
-                />
-            ))}
 
-            {/* <div className='section'>
+            <div className='section'>
                 <Link to=''><img src={require('../img/Adobo.jpg')} height="333" weight="800" className='section-img' alt='section-img'/></Link>
                 <div className='section-desc'>Adobo</div><br/>
                 <div className='section-creater'>
@@ -171,8 +163,15 @@ export default function Home() {
                     <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
                     <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
                 </div>
-            </div> */}
-
+            </div>
+            {/* {recipeList.map((recipe) => (
+                <Recipe
+                key={recipe.id}
+                {...recipe}
+                recipeName = {recipe.recipeName}
+                photoPath = {recipe.photoPath}
+                />
+            ))} */}
         </div>
         {NavBar()}
         </>
