@@ -11,12 +11,48 @@ import image1 from '../img/Sushi.jpg';
 
 export default function Result() {
     const recipes = useLocation().state;
+
+    const navigate= useNavigate();
+    const toHome= () => {
+        navigate('/Home', {state: user})
+    }
+    const toQuiz= () => {
+        navigate('/Quiz', {state: user})
+    }
+    function NavBar() {
+        console.log(user);
+        const toMe= () => {
+            navigate('/me', {state: user})
+        }
+        const toCreate= () => {
+            navigate('/Create', {state: user})
+        }
+        const toSearch= () => {
+            navigate('/Search', {state: user})
+        }
+        const toChecklist= () => {
+            navigate('/Checklist', {state: user})
+        }
+        return (
+            <div className='navigation-bar'>
+            <button onClick={toSearch} className='searchBtn'><img src={SearchImg} className='search-img' />Search</button>
+            <button onClick={toHome} className='homeBtn'><img src={HomeImg} className='home-img' />Home</button>
+            <button onClick={toCreate} className='createBtn'><img src={ShareImg} className='share-img' /></button>
+            <button onClick={toChecklist} className='checklistBtn'><img src={ShopImg} className='shop-img' />CheckList</button>
+            <button onClick={toMe} className='meBtn'><img src={MeImg} className='me-img' />Me</button>
+            </div>
+        )
+    }
+
+
+    
     return(
         <>
         <div className='body'>
             <div className='section'>
                 <Link to=''><img src={image1} className='section-img' alt='section-img'/></Link>
-                <div className='section-desc'>{recipes.recipeName}</div>
+                <div className='section-desc'></div>
+                {recipes.recipeName}
                 <div className='section-creater'>
                     <img src={HeadImg} />
                     <a>Nancy</a>
