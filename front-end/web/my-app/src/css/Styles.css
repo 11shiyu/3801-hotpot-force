@@ -74,7 +74,7 @@
 }
 
 .body{
-    height: 755px;
+    min-height: 755px;
     width: 390px;
     background: rgb(237, 247, 213);
 }

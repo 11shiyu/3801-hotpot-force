@@ -114,7 +114,7 @@ export default function Home() {
             <button onClick={toQuiz} style={{float:'right', textDecoration:'none'}} className='quiz-btn'>Quiz</button>
             </div>
             <div className='section'>
-                <Link to='/cookies'><img src={Cookie} className='section-img' alt='section-img'/></Link>
+                <Link to='/cookies'><img src={Cookie} className='section-img' alt='section-img' /></Link>
                 <div className='section-desc'>Grapes Cream Cookies! Creamy and thick~</div>
                 <div className='section-creater'>
                     <img src={HeadImg} />
@@ -132,60 +132,50 @@ export default function Home() {
                 />
             ))} */}
 
-            <div className='body'>
-                <div className='section'>
-                    <Link to=''><img src={image1} height="333" weight="800" className='section-img' alt='section-img'/></Link>
-                    <div className='section-desc'>Adobo</div>
-                    <div className='section-creater'>
-                        <img src={HeadImg} />
-                        <a>Nancy</a>
-                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
-                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
-                    </div>
+            <div className='section'>
+                <Link to=''><img src={require('../img/Adobo.jpg')} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                <div className='section-desc'>Adobo</div><br/>
+                <div className='section-creater'>
+                    <img src={HeadImg} />
+                    <a>Penda</a>
+                    <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                    <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
                 </div>
             </div>
-
-            <div className='body'>
                 <div className='section'>
-                    <Link to=''><img src={image2} height="333" weight="800" className='section-img' alt='section-img'/></Link>
-                    <div className='section-desc'>Sushi</div>
-                    <div className='section-creater'>
-                        <img src={HeadImg} />
-                        <a>Nancy</a>
-                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
-                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
-                    </div>
+                <Link to=''><img src={image2} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                <div className='section-desc'>Sushi</div><br/>
+                <div className='section-creater'>
+                    <img src={HeadImg} />
+                    <a>Max</a>
+                    <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                    <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
                 </div>
             </div>
-
-            <div className='body'>
-                <div className='section'>
-                    <Link to=''><img src={image3} height="333" weight="800" className='section-img' alt='section-img'/></Link>
-                    <div className='section-desc'>Rice Paper Rolls</div>
-                    <div className='section-creater'>
-                        <img src={HeadImg} />
-                        <a>Nancy</a>
-                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
-                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
-                    </div>
+            <div className='section'>
+                <Link to=''><img src={image3} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                <div className='section-desc'>Rice Paper Rolls</div><br/>
+                <div className='section-creater'>
+                    <img src={HeadImg} />
+                    <a>Leo</a>
+                    <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                    <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
                 </div>
             </div>
-
-            <div className='body'>
-                <div className='section'>
-                    <Link to=''><img src={image4} height="333" weight="800" className='section-img' alt='section-img'/></Link>
-                    <div className='section-desc'>Pizza</div>
-                    <div className='section-creater'>
-                        <img src={HeadImg} />
-                        <a>Nancy</a>
-                        <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
-                        <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
-                    </div>
+            <div className='section'>
+                <Link to=''><img src={image4} height="333" weight="800" className='section-img' alt='section-img'/></Link>
+                <div className='section-desc'>Pizza</div><br/>
+                <div className='section-creater'>
+                    <img src={HeadImg} />
+                    <a>Nelson</a>
+                    <img src={Like1}  style={{float:'right', width:'10%', marginRight:'5%'}}  onClick={Like} id='like1'/>
+                    <img src={Like2}  style={{float:'right', width:'10%', marginRight:'5%', display:'none'}}  onClick={Like} id='like2'/>
                 </div>
             </div>
-
-
         </div>
+
+
+
         {NavBar()}
         </>
     )
