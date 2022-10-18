@@ -13,11 +13,14 @@ public interface RecipeService {
 
     RecipeBook getRecipeByID(Long ID);
 
-    int insertIngredient(String recipeName, String ingredient) throws Exception;
+    int insertIngredient(String recipeName, String ingredient) throws Exception; // 这边改动 str
 
     List<String> checkList(String recipeName);
 
     List<RecipeBook> filter(String cookingTime, String ingredient, String nationality);
 
+    int createRecipebyCulture(Integer cookingTime, String recipeName, String description, String nationality, String photoPath, String cultureBackground) throws Exception;
+
     List<RecipeBook> getAllRecipe();
+
 }

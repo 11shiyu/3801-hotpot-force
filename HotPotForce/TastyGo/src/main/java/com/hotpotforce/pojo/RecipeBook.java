@@ -81,14 +81,6 @@ public class RecipeBook {
         this.nationality = nationality;
     }
 
-//    public Users getCreator() {
-//        return creator;
-//    }
-//
-//    public void setCreator(Users creator) {
-//        this.creator = creator;
-//    }
-
     public String getCultureBackground() {
         return cultureBackground;
     }

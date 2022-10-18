@@ -38,8 +38,8 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public int insertIngredient(String recipeName, String ingredient) throws Exception {
-        return recipeBookMapper.insertIngredient(recipeName, ingredient);
+    public int insertIngredient(String recipeName, String ingredient) throws Exception { // 这边改动 str
+        return recipeBookMapper.insertIngredient(recipeName, ingredient); // 这边改动 str
     }
 
     @Override
@@ -51,6 +51,12 @@ public class RecipeServiceImpl implements RecipeService {
     public List<RecipeBook> filter(String cookingTime, String ingredient, String nationality) {
         int time = Integer.parseInt(cookingTime);
         return recipeBookMapper.filter(time, ingredient, nationality);
+    }
+
+    @Override
+    public int createRecipebyCulture(Integer cookingTime, String recipeName, String description, String nationality, String photoPath, String cultureBackground) throws Exception {
+        int count = recipeBookMapper.createRecipebyCulture(cookingTime, recipeName, description, nationality, photoPath, cultureBackground);
+        return count;
     }
 
     @Override

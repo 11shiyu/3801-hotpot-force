@@ -30,13 +30,17 @@ public interface RecipeBookMapper {
 
 
     @Insert("insert into ingredients(recipeName, ingredient) values (#{recipeName}, #{ingredient})")
-    int insertIngredient(@Param("recipeName") String recipeName, @Param("ingredient") String ingredient);
+    int insertIngredient(@Param("recipeName") String recipeName, @Param("ingredient") String ingredient); // 这边改动 str
 
     @Select("select ingredient from ingredients where recipeName=#{recipeName}")
     List<String> getIngredients(@Param("recipeName") String recipeName);
 
     List<RecipeBook> filter(@Param("cookingTime") int cookingTime, @Param("ingredient") String ingredient, @Param("nationality") String nationality );
 
+    @Insert("insert into recipe(cookingTime, recipeName, description, nationality, photoPath, cultureBackground) values (#{cookingTime}, #{recipeName}, #{description}, #{nationality}, #{photoPath}, #{cultureBackground})")
+    int createRecipebyCulture(@Param("cookingTime") Integer cookingTime, @Param("recipeName") String recipeName,
+                     @Param("description") String description, @Param("nationality") String nationality,
+                     @Param("photoPath") String photoPath, @Param("cultureBackground") String cultureBackground);
     @Select("select * from recipe")
     List<RecipeBook> getAllRecipe();
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,7 @@ public class RecipeController {
     @Autowired
     private FavoriteService favoriteService;
 
+    @CrossOrigin
     @GetMapping("/searchRecipe")
     public List<RecipeBook> searchRecipe(String recipeName) {
         List<RecipeBook> recipeBook = recipeService.searchRecipe(recipeName);
@@ -33,6 +35,8 @@ public class RecipeController {
         return recipeBook;
     }
 
+    // this one is a new function
+    @CrossOrigin
     @GetMapping("/getAllRecipes")
     public List<RecipeBook> searchRecipeWithoutName() {
         List<RecipeBook> recipeBook = recipeService.getAllRecipe();
@@ -40,15 +44,15 @@ public class RecipeController {
         return recipeBook;
     }
 
-
     @Transactional
+    @CrossOrigin
     @PostMapping("/createRecipe")
 //    @GetMapping("/createRecipe")
     public boolean createRecipe(Integer cookingTime, String recipeName, String description,
                                 @RequestParam("ingredients") List<String> ingredients,
                                 String nationality, String photoPath) {
+
         int result = 0;
-        System.out.println(ingredients);
         if (description.length() > 0) {
             try {
                 result = recipeService.createRecipe(cookingTime, recipeName, description, nationality, photoPath);
@@ -68,8 +72,53 @@ public class RecipeController {
         return result != 0;
     }
 
+    @Transactional
+    @CrossOrigin
+    @PostMapping("/createRecipeBYIngredients")
+//    @GetMapping("/createRecipe")
+    public boolean createRecipeBYIngredients(Integer cookingTime, String recipeName, String description,
+                                String ingredients, String nationality, String photoPath) {
+
+        int result = 0;
+        if (description.length() > 0) {
+            try {
+                result = recipeService.createRecipe(cookingTime, recipeName, description, nationality, photoPath);
+                // insert ingredeint to DB
+//                System.out.println("ingredients: " + ingredients);
+                recipeService.insertIngredient(recipeName, ingredients);
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = 0;
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            }
+        }
+        return result != 0;
+    }
+
+    @Transactional
+    @CrossOrigin
+    @PostMapping("/createRecipebyCulture")
+    public boolean createRecipebyCulture(Integer cookingTime, String recipeName, String description,
+                                         String ingredients, String nationality, String photoPath, String cultureBackground) {
+        int result = 0;
+        if (description.length() > 0) {
+            try {
+                result = recipeService.createRecipebyCulture(cookingTime, recipeName, description, nationality, photoPath, cultureBackground);
+                // insert ingredeint to DB
+//                System.out.println("ingredients: " + ingredients);
+                recipeService.insertIngredient(recipeName, ingredients);
+            } catch (Exception e) {
+                e.printStackTrace();
+                result = 0;
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+            }
+        }
+        return result != 0;
+    }
 
 
+
+    @CrossOrigin
     @PostMapping("/addedFavorite")
     public Boolean addedFavorite(Long recipeID, Long userID) {
         /**
@@ -104,21 +153,25 @@ public class RecipeController {
         return flag;
     }
 
+    @CrossOrigin
     @GetMapping("/checkList")
     public List<String> checkList(String recipeName) {
         return recipeService.checkList(recipeName);
     }
 
+    @CrossOrigin
     @GetMapping("/filter")
     public List<RecipeBook> filter(String cookingTime, String ingredient, String nationality) {
         return recipeService.filter(cookingTime, ingredient, nationality);
     }
 
+    @CrossOrigin
     @GetMapping("/getFavorites")
     public List<RecipeBook> getFavorites(String username) {
         return favoriteService.getFavorites(username);
     }
 
+    @CrossOrigin
     @PostMapping("/deleteFavoriteByname")
     public Boolean deletFavorite(String username, String recipeName) {
         return favoriteService.removeFavoriteByName(username, recipeName);

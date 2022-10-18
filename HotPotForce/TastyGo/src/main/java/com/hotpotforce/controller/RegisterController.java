@@ -13,6 +13,7 @@ public class RegisterController {
     private UserService userService;
 
 //    @GetMapping("/registeration")
+    @CrossOrigin
     @PostMapping ("/registeration")
 //    @RequestMapping(value = "/registeration", method = RequestMethod.POST)
     public boolean register(String username, String password, String nation) {
@@ -22,6 +23,7 @@ public class RegisterController {
         return result;
     }
 
+    @CrossOrigin
     @GetMapping("/login/{name}/{password}")
     public Users login(@PathVariable("name") String username, @PathVariable("password") String passsword) {
         return userService.login(username, passsword);

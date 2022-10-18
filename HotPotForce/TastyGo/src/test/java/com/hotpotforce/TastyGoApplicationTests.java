@@ -22,9 +22,8 @@ class TastyGoApplicationTests {
 
     @Test
     void contextLoads() {
-        // 查看一下默认数据源 class com.zaxxer.hikari.HikariDataSource
 //        System.out.println(dataSource.getClass());
-        System.out.println("数据库连接");
+        System.out.println("CONNECT");
 //        System.out.println(dataSource.getConnection());
 //        Connection conn = dataSource.getConnection();
 
