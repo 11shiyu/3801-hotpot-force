@@ -67,6 +67,7 @@ export default function Result() {
                 </div>
             </div>
         </div>
+        {NavBar()}
         </>
     )
 }
