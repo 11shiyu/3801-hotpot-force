@@ -24,4 +24,4 @@ To view the web-app properly you need to click toggle devices toolbar at the rig
 1. Download mysql database with version lower than 8 recommen version **5.5.58**
 2. set the username as root and password as 123456
 3. create database called hotpotforce
-4. run all the script files provided
+4. run all the script files in the schema folder
