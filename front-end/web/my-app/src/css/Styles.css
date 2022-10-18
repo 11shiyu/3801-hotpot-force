@@ -74,7 +74,7 @@
 }
 
 .body{
-    height: 784px;
+    min-height: 755px;
     width: 390px;
     background: rgb(237, 247, 213);
 }
@@ -89,6 +89,19 @@
     vertical-align: middle;
     margin-left: 10%;
     font-size: 15pt;
+}
+.explore-btn, .quiz-btn{
+    width: 50%;
+    height: 30pt;
+    border-top: none;
+    background-color: rgb(196, 242, 227);
+    border-right: none;
+}
+.explore-btn{
+    border-left: none;
+}
+.quiz-btn{
+    border-right: none;
 }
 .section{
     width: 90%;
@@ -114,15 +127,6 @@
 .section-creater a{
     margin-left: 7pt;
 }
-.nav-bar{
-    height: 60px;
-    border-top: 1pt;
-    background-color: white;
-}
-.search-img, .home-img, .share-img, .shop-img, .me-img{
-    width: 13%;
-    margin-left: 17pt;
-}
 
 .search-header{
     background-color: rgb(196, 242, 227);
@@ -134,7 +138,7 @@
     font-size: 16pt;
     margin-top: 5%;
     margin-left: 5%;
-    border-radius: 10%;
+    border-radius: 10pt;
     text-indent: 3%;
 }
 .search-title{
@@ -178,11 +182,308 @@
     float: right;
     width: 30%;
     margin-right: 20%;
-    margin-top: 10%;
+    margin-top: -25%;
 }
 .create-img{
     width: 45%;
     margin-left: 3%;
     margin-top: 5%;
     border-radius: 10%;
+}
+
+/*** register ***/
+.register-title{
+    margin-top: 0;
+    margin-left: 20%;
+    font-size: 25pt;
+    color: white;
+}
+
+.register-body p{
+    font-size: 20pt;
+    color: white;
+    margin-left: 30pt;
+}
+
+.register-input{
+    font-size: 16pt;
+    margin-left: 30pt;
+}
+
+.register-button{
+    font-size: 16pt;
+    margin-left: 35%;
+    margin-top: 30pt;
+}
+
+.register-back{
+    font-size: 14pt;
+    margin-left: 32%;
+    color: aliceblue;
+}
+
+/*** Create ***/
+.create-recipe-title{
+    font-size: 26pt;
+    margin-left: 18pt;
+}
+.create-title{
+    border-bottom: solid 2pt;
+    width: 94%;
+    margin-left: 3%;
+}
+.create-body p{
+    font-size: 16pt;
+    margin-left: 3%;
+    margin-top: 5pt;
+    margin-bottom: 5pt;
+    color: rgb(106, 106, 106);
+}
+.create-description{
+    margin-left: 3%;
+    height: 40pt;
+    width: 92%;
+    font-size: 10pt;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    color: black;
+    background-color: lightgray;
+    border: none;
+    margin-bottom: 10pt;
+}
+.create-cusine{
+    width: 92%;
+    height: 40pt;
+    margin-left: 3%;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    font-size: 10pt;
+    background-color: lightgray;
+    border: none;
+}
+.create-ingredient {
+    width: 92%;
+    height: 40pt;
+    margin-left: 3%;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    font-size: 10pt;
+    background-color: lightgray;
+    border: none;
+}
+.cookTime{
+    width: 80pt;
+}
+.create-time{
+    text-align: center;
+    float: right;
+    margin-top: 0;
+    margin-right: 4%;
+    font-size: 10pt;
+    height: 30pt;
+    width: 52%;
+    border-radius: 10pt;
+    color: black;
+    background-color: lightgray;
+    border: none;
+}
+.create-cultural{
+    margin-left: 3%;
+    height: 60pt;
+    width: 92%;
+    font-size: 10pt;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    color: black;
+    background-color: lightgray;
+    border: none;
+}
+.create-send{
+    float: right;
+    font-size: 12pt;
+    margin-right: 41%;
+    margin-top: 15pt;
+    height: 30pt;
+    width: 50pt;
+    border-radius: 10pt;
+    color: black;
+    background-color: transparent;
+    border: 3px solid black;
+    opacity: .4;
+    transition: .3s;
+    box-shadow: 0 2px #00000004;
+}
+.create-send:hover{
+    color: royalblue;
+    border-color: currentColor;
+}
+
+/*** Quiz ***/
+.quiz-section h2{
+    color: rgb(237, 168, 67);
+    margin-left: 10pt;
+}
+.quiz-question{
+    font-size: 10pt;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    background-color: lightgray;
+    border-radius: 10pt;
+    min-height: 30pt;
+    text-align: left;
+    text-indent: 10pt;
+}
+.quiz-a, .quiz-b,.quiz-c,.quiz-d{
+    margin-left: 10%;
+    font-size: 10pt;
+    height: auto;
+    min-height: 20pt;
+} p{
+    margin-left: 30pt;
+    width: 78%;
+    min-height: 20pt;
+}
+.quiz-submit{
+    border-radius: 20pt;
+    width: 30%;
+    margin-left: 35%;
+    margin-bottom: 10pt;
+}
+
+/*** Checklist ***/
+.check-body{
+    width: 90%;
+    min-height: 530pt;
+    background-color: white;
+    margin-left: 5%;
+    border-radius: 50pt;
+}
+.check-title h1{
+    color: rgb(237, 168, 67);
+    font-size: 28pt;
+    margin-left: 25%;
+}
+.check-add h2{
+    margin-left: 15%;
+}
+.add-ingredient{
+    margin-left: 10%;
+    height: 20pt;
+    width: 60%;
+    border: none;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    background-color: lightgray;
+}
+.add-button{
+    margin-left: 10pt;
+    width: 40pt;
+    height: 20pt;
+    background-color: rgb(234, 144, 48);
+    border-radius: 10pt;
+    border: none;
+}
+.check-list h2{
+    margin-left: 21%;
+}
+.check-section{
+    margin-left: 10%;
+} p{
+    width: 50%;
+}
+
+.check-delete{
+    float: right;
+    height: 20pt;
+    margin-top: 11pt;
+    margin-right: 11%;
+    background-color: rgb(234, 144, 48);
+    border-radius: 10pt;
+    border: none;
+}
+
+/*** Filter ***/
+.search-section{
+    height: 400pt;
+} p{
+    font-size: large;
+}
+.filter-input{
+    margin-left: 10%;
+    height: 20pt;
+    border: none;
+    border-radius: 10pt;
+    text-indent: 10pt;
+    background-color: lightgray;
+}
+.filter-confirm{
+    margin-left: 35%;
+    font-size: larger;
+    width: 30%;
+    height: 30pt;
+    background-color: rgb(234, 144, 48);
+    border-radius: 10pt;
+    border: none;
+}
+.filter-confirm:active{
+    background-color:dimgrey;
+    color: white;
+}
+
+/*** Cookies ***/
+.cookies-header{
+    height: 50pt;
+    border-bottom: solid black;
+}
+.cookies-follow{
+    float: right;
+    width: 20%;
+    height: 20pt;
+    margin-top: 15pt;
+    margin-right: 10%;
+    border-radius: 10pt;
+    color: rgb(255, 166, 51);
+    border-color: rgb(255, 166, 51);
+    background-color: white;
+}
+.cookies-section{
+    min-height: auto;
+    color: rgb(112, 112, 112);
+}
+.cookies-title{
+    height: 60pt;
+    border-bottom: solid rgb(209, 204, 204);
+    width: 90%;
+    margin-left: 5%;
+} h2{
+    margin-left: 5%;
+    margin-top: 1%;
+} h3{
+    width: 50%;
+    margin-left: 5%;
+    margin-top: -3%;
+}
+.cookies-ingredients{
+    width: 90%;
+    margin-left: 5%;
+}
+.cookies-progress{
+    height: 200pt;
+    width: 90%;
+    margin-left: 5%;
+} ul li{
+    list-style-type: decimal;
+}
+
+/*** Navigation bar ***/
+.searchBtn, .homeBtn, .createBtn, .checklistBtn, .meBtn {
+    width: 20%;
+    height: 45pt;
+    border: none;
+    background-color: white;
+    float: left;
+}
+.search-img, .home-img, .share-img, .shop-img, .me-img{
+    width: 100%;
 }
