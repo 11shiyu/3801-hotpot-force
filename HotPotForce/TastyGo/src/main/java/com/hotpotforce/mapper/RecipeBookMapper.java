@@ -36,4 +36,7 @@ public interface RecipeBookMapper {
     List<String> getIngredients(@Param("recipeName") String recipeName);
 
     List<RecipeBook> filter(@Param("cookingTime") int cookingTime, @Param("ingredient") String ingredient, @Param("nationality") String nationality );
+
+    @Select("select * from recipe")
+    List<RecipeBook> getAllRecipe();
 }

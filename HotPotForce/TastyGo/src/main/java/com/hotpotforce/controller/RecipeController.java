@@ -33,6 +33,14 @@ public class RecipeController {
         return recipeBook;
     }
 
+    @GetMapping("/getAllRecipes")
+    public List<RecipeBook> searchRecipeWithoutName() {
+        List<RecipeBook> recipeBook = recipeService.getAllRecipe();
+//        System.out.println("recipeBook: " + recipeBook);
+        return recipeBook;
+    }
+
+
     @Transactional
     @PostMapping("/createRecipe")
 //    @GetMapping("/createRecipe")
@@ -40,6 +48,7 @@ public class RecipeController {
                                 @RequestParam("ingredients") List<String> ingredients,
                                 String nationality, String photoPath) {
         int result = 0;
+        System.out.println(ingredients);
         if (description.length() > 0) {
             try {
                 result = recipeService.createRecipe(cookingTime, recipeName, description, nationality, photoPath);

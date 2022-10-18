@@ -53,5 +53,11 @@ public class RecipeServiceImpl implements RecipeService {
         return recipeBookMapper.filter(time, ingredient, nationality);
     }
 
+    @Override
+    public List<RecipeBook> getAllRecipe() {
+        List<RecipeBook> recipe = recipeBookMapper.getAllRecipe();
+        return recipe;
+    }
+
 
 }
