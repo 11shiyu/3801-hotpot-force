@@ -1,0 +1,51 @@
+CREATE TABLE `hotpotforce`.`quiz` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `Question` MEDIUMTEXT NOT NULL,
+  `optionA` VARCHAR(45) NOT NULL,
+  `optionB` VARCHAR(45) NOT NULL,
+  `optionC` VARCHAR(45) NULL,
+  `optionD` VARCHAR(45) NULL,
+  `country` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
+CREATE TABLE `hotpotforce`.`users` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `recipe` VARCHAR(45) NULL,
+  `nationality` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NULL,
+  `score` INT(11),
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
+CREATE TABLE `hotpotforce`.`recipe` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `recipeName` VARCHAR(45) NOT NULL,
+  `cookingTime` VARCHAR(45) NOT NULL,
+  `description` MEDIUMTEXT NOT NULL,
+  `nationality` VARCHAR(45) NOT NULL,
+  `photoPath` VARCHAR(255) NOT NULL,
+  `cultureBackground` MEDIUMTEXT NULL,
+  `new_tablecol` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
+  UNIQUE INDEX `recipeName_UNIQUE` (`recipeName` ASC));
+
+CREATE TABLE `hotpotforce`.`ingredients` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `recipeName` VARCHAR(45) NULL,
+  `RecipeID` INT(11) NULL,
+  `ingredient` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`));
+
+CREATE TABLE `hotpotforce`.`favorite` (
+  `ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(45) NOT NULL,
+  `recipeID` INT(11) NULL,
+  `recipeName` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+
